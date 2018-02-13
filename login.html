@@ -1,0 +1,91 @@
+<!-- Login Form -->
+<html>
+	<head>
+		<title>Wizara Login Form</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+
+<style>
+.h3{
+	font-family:cursive;
+	font-size:30px;
+	color:#2568c6;
+	padding-bottom: 46px;
+	padding-top: 46px;
+    margin-left: 50px;
+}
+.container{
+	margin-left:480px;
+	margin-top:-233px
+}
+
+.btn{
+	margin-left:100px;
+	}
+.f_password{
+	padding-top:25px;
+	margin-left:70px;
+	font-size:18px;	
+	text-decoration:none;
+}
+
+.signup{
+	padding-top:2px;
+	margin-left:90px;
+	font-size:18px;
+	text-decoration:none;
+	}
+.input-group{
+	width:300px;
+	}
+.img{
+	width: 400px;
+    margin-top: -80px;
+	}
+</style>
+<script type="text/javascript">
+	function blockSpecialChar(e){
+		var k;
+		document.all ? k=e.keycode : k=e.which;
+		return ((k>64 && k<91) || (k>96 && k<123) || k==8 ||k==32 || (k>=48 && k<=57));
+		}
+	</script>
+	</head>
+<body>
+	<img src="logo jpeg.jpg" class="img" alt=" "/>
+		
+<form action=" " id="form2" method="POST">
+
+<div class="container">
+
+<h3 class="h3">Login form</h3>	
+
+	<div class="input-group">
+		<span class="input-group-addon">UserName</span> 
+			<input type="text" id="uname"  class="form-control" name="uname" onkeypress="return blockSpecialChar(event)"  required><br>
+	</div><br>
+	<div class="input-group">
+		<span class="input-group-addon">Password</span>
+			<input type="password" id="pass" class="form-control" name="pass" required > <br>
+	</div><br>
+		<a href="attendance.html"><input type="submit" id="signin" name="signin" class="btn btn-primary" value="Sign In" onclick="myFunction()"></a><br>
+		<div class="f_password"><a href="f_password.html" STYLE="text-decoration: none">Forget Password ? </a></div><br>
+		<div class="signup"><a href="form.html" STYLE="text-decoration: none">Sign Up</a></div>
+	</div>
+<script>
+$(function(){
+    $('#signin').click(function(){
+        $.load('attendance.html');
+    });
+});
+</script>
+</form>
+</body>
+</html>
+	
+	
+	
+
+
