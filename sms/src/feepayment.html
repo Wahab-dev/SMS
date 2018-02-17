@@ -1,0 +1,362 @@
+<html>
+<head>
+<title>School Management System | Dashboard</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	
+<style>
+.img{
+	width:80px;
+}
+.img_user{
+	width:50px;
+}
+.container-fluid{
+	height: 38px;
+}
+h3{
+	font-size:16px;
+	color:blue;
+	font-family:cursive;
+}
+.glyphicon::before {
+	padding-right:10px;
+	}
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 75px;
+    left: 0;
+    background-color: #2C3542;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 8px 0px 6px 25px;
+    text-decoration: none;
+    font-size: 12px;
+    color: #fff;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+.navbar-default {
+    background-color: #fff;
+}	
+.navbar-right{
+	margin-right:20px;
+}
+.nav-tabs {
+    border-bottom: 1px solid #ddd;
+	margin-left: 20px;
+    margin-top: 15px;
+	font-size: 18px;
+}
+.layout{
+    margin-top: 0;
+    padding: 20px;
+    min-height: 650px;
+	background-color:#F1F4F9;
+}
+.row{
+	margin-left: 90px;
+	margin-top:-15px;
+	width: 1154px;
+}
+.panel-white{
+	height:590px;
+}
+.icons{
+	height: 23px;
+	padding-right: 10px;
+}
+th{
+    font-family: Constantia;
+    font-size: 16px;
+	color: darksalmon;
+}	
+td{
+	font-family: Rockwell;
+    font-size: 15px;
+}
+
+label{
+	font-size:15px;
+	font-weight:100;
+}
+
+.entries{
+	padding-top: 30px;
+    padding-bottom: 20px;
+}
+.search{
+	text-align: right;
+    margin-top: -50px;
+    padding-bottom: 0px;
+    padding-right: 30px;
+}
+.btn{
+background-color:#79d179f7;
+
+}
+<!--Footer-->
+.footer_info{
+	font-size:13px;
+}
+.footer_paging{
+	text-align:right;
+	margin-top: -45px;
+
+}
+.pagination{
+	margin: 15px 25px;
+	font-size:12px;
+}
+
+
+ </style>
+</head>
+<body>
+<section>
+	<div class="container-fluid">
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="col-md-8 col-sm-8 col-xs-6">
+		<h3><img src="../icons/sch.jpg" class="img img-rounded" alt=" ">
+		<span>School Management System</span></h3>
+		</div>
+	
+	<ul class="nav navbar-right">				
+			<li class="dropdown">
+			<a data-toggle="dropdown" class="dropdown-toggle">
+				<img src="../icons/avatarimage.png" class="img_user"/>
+				<span>Username</span>
+				<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li><span class="glyphicon glyphicon-user">My Profile<span></li>
+				<li><span class="glyphicon glyphicon-log-out">Logout</span></li>
+			</ul>
+		</ul>
+	</div>
+</div>
+</section>
+<section>
+	<div class="container-fluid">
+		<div class="sidenav">
+			<a href="login.html"><img src="../icons/home.png" class="icons" alt=" ">Home</a>
+			<a href="dashboard.html"><img src="../icons/dashboard.png" class="icons" alt=" ">Dashboard</a>
+			<a href="#teacher"><img src="../icons/teacher.png" class="icons" alt=" ">Teacher</a>
+			<a href="student.html"><img src="../icons/student.png" class="icons" alt=" ">Student</a>
+			<a href="#subject"><img src="../icons/subject.png" class="icons" alt=" ">Subject</a>
+			<a href="classroutine.html"><img src="../icons/classroutine.png" class="icons" alt=" ">Class-Routine</a>
+			<a href="#exam"><img src="../icons/exam.png" class="icons" alt=" ">Exam</a>
+			<a href="feepayment.html"><img src="../icons/feepayment.png" class="icons"alt=" ">Fee Payment</a>
+			<a href="#payment"><img src="../icons/payment.png" class="icons" alt=" ">Payment</a>
+			<a href="#transport"><img src="../icons/bus.png" class="icons" alt=" ">Transport</a>
+			<a href="#noticeboard"><img src="../icons/noticeboard.png" class="icons" alt=" ">Notice Board</a>
+			<a href="#message"><img src="../icons/message.png" class="icons" alt=" ">Message</a>
+			<a href="#holiday"><img src="../icons/holiday.png" class="icons" alt=" ">Holiday</a>
+			<a href="#library"><img src="../icons/library.png" class="icons" alt=" ">Library</a>
+			<a href="#account"><img src="../icons/account.png" class="icons" alt=" ">Account</a>
+		</div>
+	</div>
+	<div class="layout">
+		<div class="container">
+			<div class="row">
+				<div class="panel panel-white">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#"><img src="../icons/icon-classroutine.png" class="icons">Class Timetable</a></li>
+					</ul>
+					<div class="layout-content">
+						<div class="panel-body">
+							<div class="entries">
+								<label>Show
+									<select>
+										<option value="10">10</option>
+										<option value="25">25</option>
+										<option value="50">50</option>
+										<option value="100">100</option>
+									</select> 
+								entries</label>
+							</div>
+								<div class="search">
+									<label>Search:<input type="text" class="" id="search"></label>
+								</div>
+									<table class="table table-striped" id="table">
+										<thead>
+											<tr>                
+												<th>Fee Type</th>   
+												<th>Student Name</th>
+												<th>Roll No.</th>
+												<th>Class </th> 
+												<th>Section </th> 
+												<th>Payment <BR>Status</th>
+												<th>Amount</th>
+												<th>Due <BR>Amount</th>
+												<th>Year</th>
+												<th>Action</th> 
+											</tr>
+										</thead>
+							 			<tfoot>
+											<tr>
+												<th>Fee Type</th>   
+													<th>Student Name</th>
+													<th>Roll No.</th>
+													<th>Class </th> 
+													<th>Section </th> 
+													<th>Payment <BR>Status</th>
+													<th>Amount</th>
+													<th>Due <BR>Amount</th>
+													<th>Year</th>                
+													<th>Action</th> 
+											</tr>
+										</tfoot>
+							 			<tbody>
+											<tr>
+												<td width="110px">First Term</td>
+												<td>Kevin Smith</td>
+												<td>10101</td>
+												<td>Six</td>  
+												<td>No Section</td>
+												<td><span class='btn btn-success btn-xs'>Fully Paid</span></td>
+												<td><span> &#36; </span>55000</td>
+												<td><span> &#36; </span>0</td>
+											   	<td>2016-17</td>
+												<td><a href="#" data-toggle="modal" data-target="#modal1">View</a></td>																		   
+											</tr>
+											<tr>
+												<td width="110px">site-img48</td>
+												<td>Pygbuyuhi</td>
+												<td>154101</td>
+												<td>Seven</td>  
+												<td>No Section</td>
+												<td><span class='btn btn-success btn-xs'>Partially Paid</span></td>
+												<td><span> &#36; </span>45000</td>
+												<td><span> &#36; </span>39790</td>
+												<td>2015-16</td>
+												<td><a href="#" data-toggle="modal" data-target="#modal1">View</a></td>
+											</tr>
+											<tr>
+												<td width="110px">First Term</td>
+												<td>iyfvhb f</td>
+												<td>68157</td>
+												<td>Eight</td>  
+												<td>No Section</td>
+												<td><span class='btn btn-success btn-xs'>Fully Paid</span></td>
+												<td><span> &#36; </span>55000</td>
+												<td><span> &#36; </span>-1321</td>
+											   	<td>2018-18</td>
+												<td><a href="#" data-toggle="modal" data-target="#modal1">View</a></td>									   
+											</tr>
+											<tr>
+												<td width="110px">Third Term</td>
+												<td>fujgifjgofg</td>
+												<td>894787</td>
+												<td>Six</td>  
+												<td>No Section</td>
+												<td><span class="btn btn-success btn-xs" >Partially Paid</span></td>
+												<td><span> &#36; </span>55000</td>
+												<td><span> &#36; </span>8495</td>
+											   	<td>2001-3</td>
+												<td><a href="#" data-toggle="modal" data-target="#modal1">View</a></td>
+											</tr>
+											<tr>
+												<td width="110px">Fourth Term</td>
+												<td>vuinfvfi</td>
+												<td>847758</td>
+												<td>Second</td>  
+												<td>No Section</td>
+												<td><span class='btn btn-success btn-xs'>Not Paid</span></td>
+												<td><span> &#36; </span>55000</td>
+												<td><span> &#36; </span>55000</td>
+												<td>2012-10</td>
+												<td><a href="#" data-toggle="modal" data-target="#modal1">View</a></td>								   
+											</tr>
+											<tr>
+												<td width="110px">Exam Fees</td>
+												<td>Kevin Smith</td>
+												<td>10101</td>
+												<td>Six</td>  
+												<td>No Section</td>
+												<td><span class='btn btn-success btn-xs'>Not Paid</span></td>
+												<td><span> &#36; </span>1000</td>
+												<td><span> &#36; </span>1000</td>
+												<td>2017-18</td>
+												<td><a href="#" data-toggle="modal" data-target="#modal1" >View</a></td>									   
+											</tr>
+											<tr>
+												<td width="110px">Fifth Term</td>
+												<td>fjbnfiffjvkvj</td>
+												<td>85487</td>
+												<td>Six</td>  
+												<td>No Section</td>
+												<td><span class='btn btn-success btn-xs'>Fully Paid</span></td>
+												<td><span> &#36; </span>55000</td>
+												<td><span> &#36; </span>0</td>
+											   	<td>2015-17</td>
+												<td><a href="#" data-toggle="modal" data-target="#modal1">View</a></td>
+											</tr>
+										</tbody>
+									</table>
+								<div class="footer_info">Showing 1 to 7 of 7 entries</div>
+										<div class="footer_paging">
+													<nav aria-label="Page navigation example">
+													  <ul class="pagination">
+														<li class="page-item">
+														  <a class="page-link" href="student.html" aria-label="Previous">
+															<span aria-hidden="true">&laquo;</span>
+															<span class="sr-only">Previous</span>
+														  </a>
+														</li>
+															<li class="page-item"><a class="page-link" href="#">1</a></li>
+															<li class="page-item">
+															  <a class="page-link" href="page3.html" aria-label="Next">
+																<span aria-hidden="true">&raquo;</span>
+																<span class="sr-only">Next</span>
+															  </a>
+															</li>
+													  </ul>
+													</nav>
+											</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Modal-Result-->
+<div class="modal fade" id="modal1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">School Management System</h4>
+			</div>
+			<div class="modal-body">
+				</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal"> Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+var $rows = $('#table tr');
+$('#search').keyup(function() {
+    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+    
+    $rows.show().filter(function() {
+        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+        return !~text.indexOf(val);
+    }).hide();
+});
+</script>
+</body>
+</html>
