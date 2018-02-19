@@ -45,6 +45,6 @@
 		}
 	}
 
-	$user = new Login();
+	$user = new Login();//Creates an object of class login everytime the user logs in.
 
 ?>
