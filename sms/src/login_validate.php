@@ -1,7 +1,26 @@
+<!-- 
+	Author:
+	 Project 
+	 Version
+	 Module / Page  
+	 Description
+
+
+-->
+
+
 <?php
+/*
+*  Class
+
+*  Description
+*  Extend / Inherit/ 
+*
+*/
 	class Login 
 	{
 		public $db = '';
+		
 		public function __construct() 
 		{	
 			//connecting to db - sms_wizara
