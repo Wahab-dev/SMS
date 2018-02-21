@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<title> RegisterForm </title>
+		<!-- Custom-Stylesheet-Links -->
+			<!-- Bootstrap-CSS -->	<link rel="stylesheet" href="css/bootstrap.min.css"	type="text/css" media="all">
+			<!-- Index-Page-CSS <link rel="stylesheet" href="css/style.css" 		type="text/css" media="all">-->
+			<!-- Animate.CSS --	<link rel="stylesheet" href="css/animate.css" 		type="text/css" media="all"> -->
+		<!-- //Custom-Stylesheet-Links -->
+
+	</head>
+
+	<body>
+		
+	<div class="container-fluid">
+
+		<div class="row">
+			<h3 align="center">Register Form!!</h3>
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+
+			<form action="register_validate.php" method="post">
+
+    		<div>
+        		<label>UserName</label>
+        		<input type="text" name="username" class="form-control"  placeholder="Username"  required="">
+    		</div>
+
+    		<div>
+        		<label>Email</label>
+        		<input type="email" name="email" class="form-control"  placeholder="Email"   required="">
+    		</div>
+
+    		<div>
+        		<label>Password</label>
+        		<input type="password"  name="password" class="form-control" id="inputPassword" placeholder="Password" required="">
+   			 </div>
+
+    		 <div>
+    			<div><label>Gender</label></div>
+    			<label class="radio-inline"> <input type="radio" name="gender" required="">Male</label>
+    			<label class="radio-inline"><input type="radio" name="gender" required="">Female</label>
+    		</div>
+
+    		 <div>
+    		 	<div><label>Favourite Journals</label></div>
+	        		<label class="checkbox-inline"><input type="checkbox" name="journal"> Mystery</label>		 
+	    			<label class="checkbox-inline"><input type="checkbox" name="journal"> Thriller </label>   		
+	   				<label class="checkbox-inline"><input type="checkbox" name="journal">Comedy</label>
+    		</div>
+
+    		<div class="form-group">
+  					<label>Choose a Character</label>
+  					<select class="form-control">
+  							<option readonly="">None</option>
+    						<option>Harry</option>
+   							<option>Ron</option>
+    						<option>Hermione</option>
+    						<option>Hagrid</option>
+  					</select>
+			</div>
+            <input type="hidden" name="form_token" value="<?php echo $form_token; ?>" />
+    		<button type="submit" class="btn btn-primary">Save</button>
+
+			</form>
+
+
+			</div>
+		</div>
+	</div>
+	</body>
+
+</html>
