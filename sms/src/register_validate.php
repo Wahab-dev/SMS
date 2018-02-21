@@ -22,7 +22,7 @@
 			{
 				$query = $this->db->prepare("INSERT INTO user_login (username, password)VALUES ('$username', '$password')"); 
 				$query->execute();
-				echo "New User successfully... Successfully Registered";
+				echo "New User.....Successfully Registered";
 				
 			} 
 			catch (PDOException $e) 
