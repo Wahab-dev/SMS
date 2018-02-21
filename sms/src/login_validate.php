@@ -48,10 +48,12 @@
 			try 
 			{
 				//creates a PDO statement
-				$query = $this->db->prepare("SELECT * FROM user_login WHERE username = '$username' and password = '$password'"); //checking the table - user_login
+				//$query = $this->db->prepare("SELECT * FROM user_login WHERE username = '$username' and password = '$password'"); //checking the table - user_login
+				$query = $this->db->prepare("SELECT * FROM user_login WHERE username = :username and password = :password ");
 
 				//Executing the query
-				$query->execute();
+				//$query -> execute();
+				$query->execute( array('username' => $username , 'password' => $password )); //binding the parameter prevents sql injection
 
 				//fetching the row(if it is valid user or else it does not fetch anything)
 				$row = $query->fetch();				
