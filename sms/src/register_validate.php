@@ -43,7 +43,7 @@
 			try 
 			{
 				//creates the PDO statement
-				$query = $this->db->prepare("INSERT INTO user_login (username, password)VALUES (':username', ':password')"); 
+				$query = $this->db->prepare("INSERT INTO user_login (username, password)VALUES (:username, :password)"); 
 
 				//executes the query
 				$query->execute(array('username' => $username , 'password' => $password ));
