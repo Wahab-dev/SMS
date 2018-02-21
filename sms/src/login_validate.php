@@ -33,6 +33,8 @@
 			if(!empty($row))
 			{
 				//echo "Access Granted";
+				session_start();
+				$_session['username'] = $username;
 				$template ='dashboard.html';
 			}
 			else
