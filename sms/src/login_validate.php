@@ -3,7 +3,7 @@
 	Project :School Management System
 	Version : 1
 
-	Module / Page  : Login Module/Validation Page(Server Side Script)
+	Module / Page  : Login Module/Login Validation Page(Server Side Script)
 	Description	   : This Page takes the username and password from the user, validates and navigate to dashboard if they are authenticated as valid user,else 					stays in same page .
 
 
