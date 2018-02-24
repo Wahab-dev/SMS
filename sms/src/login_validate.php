@@ -42,21 +42,29 @@
 			$template = '';
 			if (!empty($_POST['uname']) && !empty($_POST['pass']))
 			 {
-				$username = $_POST['uname'];
-				$password = $_POST['pass'];
-			 }		
+				$username = htmlspecialchars($_POST['uname']);
+				$password = htmlspecialchars($_POST['pass']);
+			 }	
+
+			 
 			try 
 			{
+				
 				//creates a PDO statement
 				//$query = $this->db->prepare("SELECT * FROM user_login WHERE username = '$username' and password = '$password'"); //checking the table - user_login
-				$query = $this->db->prepare("SELECT * FROM user_login WHERE username = :username and password = :password ");
+				$query = $this->db->prepare("SELECT * FROM user_login WHERE username = :username");
 
 				//Executing the query
 				//$query -> execute();
-				$query->execute( array('username' => $username , 'password' => $password )); //binding the parameter prevents sql injection
+				$query->execute( array('username' => $username )); //binding the parameter prevents sql injection
 
 				//fetching the row(if it is valid user or else it does not fetch anything)
-				$row = $query->fetch();				
+				$row = $query->fetch();	
+				if(!empty($row))
+				{
+					$hashpassword = $row['password'];
+					$grant = password_verify($password,$hashpassword); //it returns boolean value, true if matched and false if not matched.
+				}			
 			} 
 			catch (PDOException $e) 
 			{
@@ -68,10 +76,18 @@
 			//if else condition checks the validity and navigate
 			if(!empty($row))
 			{
-				//echo "Access Granted";
-				session_start();
-				$_session['username'] = $username;
-				$template ='dashboard.html';
+				if($grant) //if the user is present and the password is correct
+				{
+					//echo "Access Granted";
+					session_start();
+					$_session['username'] = $username;
+					$template ='dashboard.html';
+				}
+				else
+				{
+					$template = 'login.html';
+				}
+				
 			}
 			else
 			{
