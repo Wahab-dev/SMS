@@ -38,7 +38,7 @@
 			if (!empty($_POST['username']) && !empty($_POST['password']))
 			 {
 				$username = $_POST['username'];
-				$password = $_POST['password'];
+				$hashpassword = password_hash($_POST['password'],PASSWORD_DEFAULT);
 			 }		
 			try 
 			{
@@ -46,7 +46,7 @@
 				$query = $this->db->prepare("INSERT INTO user_login (username, password)VALUES (:username, :password)"); 
 
 				//executes the query
-				$query->execute(array('username' => $username , 'password' => $password ));
+				$query->execute(array('username' => $username , 'password' => $hashpassword ));
 
 				//Display the message
 				echo "New User.....Successfully Registered";
