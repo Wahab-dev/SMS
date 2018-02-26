@@ -1,0 +1,52 @@
+<html>
+<head>
+</head>
+<body>
+
+    <div>
+        <br>
+        Countries:
+        <br>
+        <select id="counties" onChange="return setMail()">
+            <option data-mail="0" value="Choose One">Select One</option>
+            <option data-mail="1" value="Chennai">Chennai</option>
+            <option data-mail="1" value="Coimbatore">Coimbatore</option>
+            <option data-mail="1" value="Madurai">Madurai</option>
+            <option data-mail="1" value="Trichy">Trichy</option>
+            <option data-mail="1" value="Salem">Salem</option>
+            <option data-mail="1" value="Thanjavur">Thanjavur</option>
+            <option data-mail="1" value="Vellore">Vellore</option>
+            <option data-mail="1" value="Erode">Erode</option>
+            <option data-mail="1" value="Kanchipuram">Kanchipuram</option>
+            <option data-mail="2" value="Bangalore">Bangalore</option>
+            <option data-mail="2" value="Mysore">Mysore</option>
+            <option data-mail="2" value="Sringeri">Sringeri</option>
+            <option data-mail="2" value="Kolar">Kolar</option>
+            <option data-mail="2" value="Gokak">Gokak</option>
+            <option data-mail="2" value="Dandeli">Dandeli</option>
+            <option data-mail="2" value="Bijapur">Bijapur</option>
+            <option data-mail="2" value="Chikmagalur">Chikmagalur</option>
+        </select>
+    </div>
+	<div>       
+ <br />
+       State
+        <br>
+        <input type="text" id="state" />
+    </div>
+<script>
+	function setMail(){
+    var ddl = document.getElementById("counties");
+    var selectedOption = ddl.options[ddl.selectedIndex];
+    var mailValue = selectedOption.getAttribute("data-mail");
+    var textBox = document.getElementById("state");
+    if(mailValue=="1"){
+    	textBox.value = "TamilNadu";
+    }
+    else if(mailValue=="2"){
+    	textBox.value = "Karnataka";
+    }   
+}
+</script>
+</body>
+</html>

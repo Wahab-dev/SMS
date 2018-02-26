@@ -1,0 +1,119 @@
+<!-- Author : Priyadarshini
+	Company name : Wizara Infotech
+	Date : 20-Feb-2018
+	Description : This project is about a jQuery AutoComplete with a static data in HTML.
+-->
+<html>
+   <head>
+      <meta charset = "utf-8">
+      <title>jQuery Autocomplete with Static Data</title>
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	  <!--script for MultiSelect -->
+	 <script src="chosen.jquery.js" type="text/javascript"></script>
+	 <!--Css for multiselect -->
+	 <link rel="stylesheet" href="chosen.css">
+      
+ <Style>
+h3{
+	color: #e70fb9;
+    font-family: cursive;
+    text-align: center;
+}
+p{
+	color:#b10fe7;
+	font-family : cursive;
+	font-size : 15px;
+}
+.container{
+	margin-left: 40px;
+}
+.multiselect {
+	width : 170px;
+ }
+</style> 
+   </head>
+   
+  <body>
+	<h3>JQuery AutoComplete Examples</h3>
+   
+      <div class = "container">
+	  <!--AutoComplete Example1 -->
+		<div class="AutoComExample1">
+			 <p>1 . Jquery autocomplete Example which search a letter</p>
+			 <label>Enter Languages do you want ? </label>
+			 <input id = "autocomplete-1">
+		</div>
+		<!--AutoComplete Example2 -->
+		<div class="AutoComExample1">
+			 <p>2 . Jquery autocomplete Example which search a letter with an Autofocus</p>
+			 <label>Enter Languages do you want ? </label>
+			 <input id = "autocomplete-2">
+		</div>
+		<!--AutoComplete Example3 -->
+		<div class="AutoComExample1">
+			 <p>3 . Jquery autocomplete Example which search any two letters</p>
+			 <label>Enter Languages do you want ? </label>
+			 <input id = "autocomplete-3">
+		</div>
+		<!--AutoComplete Example4 -->
+		<div class="AutoComExample1">
+			 <p>4 . Jquery autocomplete Example for disabled</p>
+			 <label>Enter Languages do you want ? </label>
+			 <input id = "autocomplete-4">
+		</div>
+		<div class="AutoComExample1">
+			 <p>5 . Jquery autocomplete Example for MultiSelect</p>
+			 <label>Enter Languages do you want ? </label>
+			 <select multiple id = "autocomplete-5" class="multiselect">
+				<option value = "c"> C </option>
+				<option value = "c++"> C++ </option>
+				<option value = "html/css"> HTML / CSS </option>
+				<option value= "bootstrap"> Bootstrap </option>
+				<option value = "javascript"> JavaScript</option>
+				<option value = "jquery"> JQuery</option>
+			</select>
+		</div>
+      </div>
+ 
+    <!-- Javascript for autocomplete example -->
+      <script>
+         $(function() {
+		 <!--autocomplete example 1-->
+            var autocomplete  =  ["C","C++","HTML","CSS","Bootstrap","Javascript","JQuery","PHP","Java","JSP","PERL","Python","Ruby","Android","swift","C#",".Net"];
+				$( "#autocomplete-1" ).autocomplete({
+               source: autocomplete
+            });
+			<!--autocomplete example 2-->
+			 var autocomplete  =  ["C","C++","HTML","CSS","Bootstrap","Javascript","JQuery","PHP","Java","JSP","PERL","Python","Ruby","Android","swift","C#",".Net"];
+				$( "#autocomplete-2" ).autocomplete({
+                source: autocomplete,
+				autoFocus:true
+			});
+			<!--autocomplete example 3-->
+			 var autocomplete  =  ["C","C++","HTML","CSS","Bootstrap","Javascript","JQuery","PHP","Java","JSP","PERL","Python","Ruby","Android","swift","C#",".Net"];
+				$( "#autocomplete-3" ).autocomplete({
+				minLength:2,   
+               delay:1000, 
+               source: autocomplete
+            });
+		});
+    </script>
+	<!--autocomplete example 4-->
+	<script>
+         $(function() {
+			 var autocomplete1  =  ["C","C++","HTML","CSS","Bootstrap","Javascript","JQuery","PHP","Java","JSP","PERL","Python","Ruby","Android","swift","C#",".Net"];
+				$( "#autocomplete-4" ).autocomplete(disable){
+               source: autocomplete1
+            });
+		});
+	</script>
+	<!--autocomplete example 5-->
+	<script>
+         $(function() {
+			$("#autocomplete-5").chosen();
+		});
+	</script>
+</body>
+</html>

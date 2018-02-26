@@ -1,2 +1,286 @@
+<!-- Author : Priyadarshini
+	Company name : Wizara Infotech
 	Date : 19-Feb-2018
 	Description : This project is about a simple page which contains Datatime Picker using Jquery in HTML.
+-->
+<html lang="en">
+<head>
+    <title>JQuery - Datepicker Example</title>
+	<!--Script link for datetime picker Example-->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script> 
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet">   
+		
+	<!--Script link for datetime picker Example-1-->
+		<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+		<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		
+</head>
+<style>
+	.datetimepicker{
+		color:red;
+		font-family:cursive;
+	}
+	.datetimepicker1{
+		color:red;
+		font-family:cursive;
+		margin-left:-1025px;
+	}
+	.datetimemodal-1{
+		margin-left: -930px;
+		margin-top: 35px;
+	}
+	.ui-widget-header{
+		color:#d62121;
+	}
+	.h2{
+		margin-top: 80px;
+		color: #d66565;
+		font-family: cursive;
+		text-align:center;
+	}
+	.datepicker1{
+		margin-top: 50px;
+		margin-left: 130px;
+	}
+	.container2{
+		margin-left:500px;
+		margin-top:-935px;
+	}
+	p{
+		width:30% ;
+	}
+</style>
+<body>
+ <h2 class="h2">Jquery - Datepicker Example</h2>
+	<div class="container text-center">
+	<div class="datepicker1">
+		<p class="datetimepicker1">DateTime Picker Example</p>
+			<div class="datetimemodal-1">
+				 <strong>Select Date : </strong> <input type="text" id="datepicker" class="from-control">
+			</div>
+		</div>
+	</div>
+	
+	<!--Datetime Picker Example-1-->
+	<div class="datepicker1">
+	<p class="datetimepicker">DateTime Picker Example-1</p>
+		<Strong>Select date : </strong>
+			<input type="text" id="datepicker1"/><br><br>
+		<Strong>Alternate date : </strong>
+			<input type="text" id="datepickeralt-1"/>
+	</div>
+	<!--Datetime Picker Example-2-->
+	<div class="datepicker1">
+		<p class="datetimepicker">DateTime Picker Example-2</p>
+			<Strong>Select date : </strong>
+				<input type="text" id="datepicker2"/> <br><br>
+	</div>
+	<!--Datetime Picker Example-3-->
+	<div class="datepicker1">
+		<p class="datetimepicker">DateTime Picker Example-3</p>
+			<Strong>Select date : </strong>
+				<input type="text" id="datepicker3"/> <br><br>
+	</div>
+	<!--Datetime Picker Example-4-->
+	<div class="datepicker1">
+		<p class="datetimepicker">DateTime Picker Example-4</p>
+			<Strong>Select date : </strong>
+				<input type="text" id="datepicker4"/> <br><br>
+				<P>This format explains the previous days of the month + current day of the month..<br>
+					for ex, If you select date on feb 1 , then it will show 'o' as 32(Jan 31 +feb1 (31days +  1day))=32</p>
+	</div>
+		<!--Datetime Picker Example-5-->
+		<div class="datepicker1">
+			<p class="datetimepicker">DateTime Picker Example-5</p>
+				<Strong>Select date : </strong>
+					<input type="text" id="datepicker5"/> 
+					<img src="calendar.png" alt=" " id="calendar" height="20px"><br><br>
+		</div>
+	<div class="container2">
+	
+		<!--Datetime Picker Example-6-->
+		<div class="datepicker1">
+			<p class="datetimepicker">DateTime Picker Example-6</p> 
+				<Strong>Select date : </strong>
+					<input type="text" id="datepicker6"/> <!--Change Month-->
+					<input type="text" id="datepickeryear6"/> <!--Change Year -->
+		</div>
+		<!--Datetime Picker Example-7-->
+		<div class="datepicker1">
+			<p class="datetimepicker">DateTime Picker Example-7</p> 
+				<Strong>Select date : </strong>
+					<input type="text" id="datepicker7"/> <!--Disabling Future upcoming dates-->
+							<br> <br>
+					<p> Disabled Future Dates in the calendar </p>
+		</div>
+		<!--Datetime Picker Example-8-->
+		<div class="datepicker1">
+			<p class="datetimepicker">DateTime Picker Example-8</p> 
+				<Strong>Select date : </strong>
+					<input type="text" id="datepicker8"/> <!--Disabling the selection of weekends-->
+							<br> <br>
+					<p> Disabling the selection of weekends in the calendar </p>
+		</div>
+		
+		<!--Datetime Picker Example-9-->
+		<div class="datepicker1">
+			<p class="datetimepicker">DateTime Picker Example-9</p> 
+				<Strong>Select date : </strong>
+					<input type="text" id="datepicker9"/> <!--Disabling the Date selection for Monday-->
+							<br> <br>
+					<p> Disabling the Date selection for Monday in the calendar </p>
+		</div>
+		
+		<!--Datetime Picker Example-10-->
+		<div class="datepicker1">
+			<p class="datetimepicker">DateTime Picker Example-10</p> 
+				<Strong>Select date : </strong>
+					<input type="text" id="datepicker10"/> <!--Show Other Months in the Calendar-->
+							<br> <br>
+					<p> Show Other Months in the calendar </p>
+		</div>
+		<!--Datetime Picker Example-11-->
+		<div class="datepicker1">
+			<p class="datetimepicker">DateTime Picker Example-11</p> 
+				<Strong>Select date : </strong>
+					<input type="text" id="datepicker11"/> <!--Show Week in the Calendar-->
+							<br> <br>
+					<p> Show Weeks in the calendar </p>
+		</div>
+		<!--Datetime Picker Example-12-->
+		<div class="datepicker1">
+			<p class="datetimepicker">DateTime Picker Example-12</p> 
+				<Strong>Select date : </strong>
+					<input type="text" id="datepicker12"/> <!--Show Number of Months in the Calendar-->
+							<br> <br>
+					<p> Show Number of Months in the calendar </p>
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+<!--Script for datetime Picker Example--->
+	<script type="text/javascript">
+		$( "#datepicker" ).datepicker();
+	</script>
+<!--Script for datetime picker Example-1-->
+	<script type="text/javascript">
+         $(function() {
+            $( "#datepicker1" ).datepicker({
+               appendText:"(yy-mm-dd)",
+               dateFormat:"yy-mm-dd",
+               altField: "#datepickeralt-1",
+               altFormat: "DD, d MM, yy"
+            });
+         });
+    </script>
+	<!--Script for datetime picker Example-2-->
+	<script type="text/javascript">
+         $(function() {
+            $( "#datepicker2" ).datepicker({
+               appendText:"(dd-mm-yy)",
+               dateFormat:"dd-mm-yy",
+            });
+         });
+    </script>
+	<!--Script for datetime picker Example-3-->
+	<script type="text/javascript">
+         $(function() {
+            $( "#datepicker3" ).datepicker({
+               appendText:"(d-m-y)",
+               dateFormat:"d-m-y",
+            });
+         });
+    </script>
+	<!--Script for datetime picker Example-4-->
+	<script type="text/javascript">
+         $(function() {
+            $( "#datepicker4" ).datepicker({
+               appendText:"(d-m-o)",
+               dateFormat:"d-m-o",
+            });
+         });
+    </script>
+	<!--Script for datetime picker Example-5-->
+		<script type="text/javascript">
+			$("#datepicker5").datepicker();
+			  $("#calendar").click(function() { 
+			   $("#datepicker5").datepicker( "show" );
+			  });
+		 </script>
+	<!--Script for datetime picker Example-6-->
+	<script type="text/javascript">
+         $(function() {
+		    $( "#datepicker6" ).datepicker({
+                changeMonth: true    <!--Change Month-->
+				
+            });
+			$( "#datepickeryear6" ).datepicker({
+				changeYear : true   <!--change Year-->
+			});
+		 });
+    </script>
+	<!--Script for datetime picker Example-7-->
+	<script type="text/javascript">
+         $(function() {
+			$( "#datepicker7" ).datepicker({
+			maxDate: new Date() <!--Disabled future dates -->
+			});
+		}); 
+	</script>
+	<!--Script for datetime picker Example-8-->
+	<script type="text/javascript">
+         $(function() {
+			$( "#datepicker8" ).datepicker({
+				beforeShowDay : $.datepicker.noWeekends   <!--Disabling Weekends in the Calendar -->
+			});
+		}); 
+	</script>
+	<!--Script for datetime picker Example-9-->
+	<script type="text/javascript">
+         function DisableMonday(date) {
+			var day = date.getDay();
+				if(day == 1) {  <!--Disabling only Monday in the Calendar -->
+					return [false] ;
+					}
+					else{
+					return [true] ;
+					}
+				}
+			$(function() {
+			 $( "#datepicker9" ).datepicker({
+			 beforeShowDay: DisableMonday
+			 });
+		});
+	</script>
+	<!--Script for datetime picker Example-10-->
+	<script type="text/javascript">
+         	$( "#datepicker10" ).datepicker({
+				showOtherMonths : true   <!--Show Other Months in the Calendar -->
+			});
+		</script>
+	<!--Script for datetime picker Example-11-->
+	<script type="text/javascript">
+         	$( "#datepicker11" ).datepicker({
+				showWeek : true   <!--Show Weeks in the Calendar -->
+			});
+		</script>
+	<!--Script for datetime picker Example-12-->
+	<script type="text/javascript">
+         	$( "#datepicker12" ).datepicker({
+				numberOfMonths : 2   <!--Show Weeks in the Calendar -->
+			});
+		</script>
+</body>
+</html>
+
+
+
+
+
