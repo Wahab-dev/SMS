@@ -70,17 +70,25 @@
 		<span class="input-group-addon">Password</span>
 			<input type="password" id="pass" class="form-control" name="pass" required > <br>
 	</div><br>
-		<a href="attendance.html"><input type="submit" id="signin" name="signin" class="btn btn-primary" value="Sign In" onclick="myFunction()"></a><br>
-		<div class="f_password"><a href="f_password.html" STYLE="text-decoration: none">Forget Password ? </a></div><br>
-		<div class="signup"><a href="form.html" STYLE="text-decoration: none">Sign Up</a></div>
+		<!--sign in button which linked with attendance page-->
+		<a href="attendance.html"><input type="submit" id="signin" name="signin" class="btn btn-primary" value="Sign In" disabled="disabled" onclick="myFunction()"></a><br>
+		<div class="f_password"><a href="f_password.html" STYLE="text-decoration: none">Forget Password ? </a></div><br><!--Forget password-->
+		<div class="signup"><a href="form.html" STYLE="text-decoration: none">Sign Up</a></div><!--Signup page which is redirected to register page-->
 	</div>
-<script>
-$(function(){
-    $('#signin').click(function(){
-        $.load('attendance.html');
-    });
-});
-</script>
+
+<!--script for disabled sign in button using jquery-->
+		<script>
+		$(document).ready(function () {
+		$('#uname').on('input change', function () {
+			if ($(this).val() != '') {
+				$('#signin').prop('disabled', false);
+			}
+			else {
+				$('#signin').prop('disabled', true);
+			}
+		});
+		});
+		</script>
 </form>
 </body>
 </html>
