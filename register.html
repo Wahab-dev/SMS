@@ -1,0 +1,312 @@
+<!-- Author : Priyadarshini
+	 Date : 03-Feb-2018
+	 Project : Registration Form
+-->
+<html>
+<head>
+<title>Registration Form</title>
+	<!--CSS Files-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!--Datepicker-->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+#text_area{
+	resize:none;
+}
+.personal_field{
+	width:500px;
+	margin-left: 100px;
+}
+.contact_field{
+	width:500px;
+	margin-left: 730px;
+    margin-top: -300px;
+}
+.education_field{
+	width:500px;
+	margin-top: -147px;
+	margin-left: 100px;
+}
+.dropdown_list{
+	width :173px;
+}	
+.dob{
+	width:173px;
+}
+.TextBox_Details{
+	padding-top:20px;
+}
+.Label_Details{
+	padding-top:20px;
+	font-family:cursive;
+}
+.contact_details{
+	margin-top:-200px;
+	margin-left:600px;
+}
+.h3{
+	font-family:cursive;
+	font-size:30px;
+	color:#ee9d4a;
+    text-align: center;
+}
+.b{
+	font-family:cursive;
+	font-size:25px;
+	color:#a788c9;
+}
+.button{
+	margin-left:425px;
+	padding-right:5em;
+	margin-top:50px;
+}
+.submit_button{
+	background-color:#4CAF50;
+	color:#fff;
+	text-align:center;
+	border:none;
+	font-size: 15px;
+    padding: 12px 25px;
+	display: inline-block;
+	text-decoration: none;
+	border-radius: 8px;
+}
+.reset_button{
+	background-color: #f44336;
+	color:#fff;
+	text-align:center;
+	border:none;
+	font-size: 15px;
+    padding: 12px 25px;
+	display: inline-block;
+	text-decoration: none;
+	border-radius: 8px;
+}
+.reset_btn{
+padding-left: 50px;
+}
+.form-control{
+width:20px;
+}
+.name{
+    font-size: 16px;
+    font-family: cursive;
+    color: lightcoral;
+	}
+.input-group{
+padding-top:20px;
+}
+.panel-default{
+width:480px;
+}
+.glyphicon-arrow-left{
+	color:blue;
+	top: 40px;
+    left: 50px;
+	font-size: 25px;
+}
+.c_details{
+	margin-top: -440px;
+    margin-left: 600px;
+}
+.container{
+margin-top: 80px;
+}
+.e_details{
+margin-top: -292px;
+}
+</style>
+<script>
+function disable1()
+{
+if(document.getElementById("single").checked)
+	{
+	 document.getElementById("married").disabled=true;
+	 }
+	else{
+	document.getElementById("married").disabled=false;
+	}
+}
+function disable2()
+{
+if(document.getElementById("married").checked)
+	{
+	document.getElementById("single").disabled=true;
+	}
+	else{
+	document.getElementById("single").disabled=false;
+	}
+}
+function blockSpecialChar(e){
+		var k;
+		document.all ? k=e.keycode : k=e.which;
+		return ((k>64 && k<91) || (k>96 && k<123) || k==8 ||k==32 || (k>=48 && k<=57));
+		}
+function blockSpecialChar_number(e){
+		var k;
+		document.all ? k=e.keycode : k=e.which;
+		return (k==8 ||k==32 || (k>=48 && k<=57));
+		}
+function blockSpecialChar_emailid(e){
+		var k;
+		document.all ? k=e.keycode : k=e.which;
+		return ((k>64 && k<91) || (k>96 && k<123)||k==8 ||k==32 ||k==64 || (k>=48 && k<=57));
+		}
+</script>
+
+<!--Script for datetime picker Example-6-->
+	<script type="text/javascript">
+         $(function() {
+		    $( "#dob" ).datepicker({
+               changeMonth: true,
+			       changeYear : true,
+				    dateFormat:"dd-mm-yy"
+			});
+		 });
+    </script>
+</head>
+<body>
+<a href="login.html"><p class="arrow_left"><span class="glyphicon glyphicon-arrow-left"></span></p></a>
+<h3 class="h3">Registration Form</h3>
+<form name="reg_form"  id="reg_form" action="regform.php" method="Post" >
+<div class="container">
+<div class="p_details">
+<div class = "panel panel-default">
+   <div class = "panel-heading">
+		<h2 class="personal_field">Personal Details</h2>
+	</div>
+	
+   <div class = "panel-body">
+	<div class="input-group">
+	<label for="name" class="name">First Name </label>
+		<input type="text" name="fname" id="firstname" class="form-control" placeholder="FirstName" onkeypress="return blockSpecialChar(event)" required><br>	
+</div>
+<div class="input-group">
+	<label for="name" class="name">Last Name	</label>
+	<input type="text" name="lname" id="lastname" class="form-control" placeholder="LastName" onkeypress="return blockSpecialChar(event)" required><br>
+</div>	
+<div class="input-group">
+		<label for="name" class="name">Gender	</label>
+		<input type="radio" name="gender" value="Male" id="male" required>Male
+			 <input type="radio" name="gender" value="Female" id="female">Female<br>
+	</div>	
+<div class="input-group">	
+	<label for="name" class="name">D.O.B.	</label>
+	<input type="text" class="dob" name="dob" size="20" id="dob" class="form-control" required ><br>
+	</div>	
+<div class="input-group">	
+	<label for="name" class="name">Marital Status </label>	
+		<input type="checkbox" name="mstatus" value="Single" id="single"  onclick="disable1()" >Single
+			<input type="checkbox" name="mstatus" value="Married" id="married"  onclick="disable2()">Married<br>
+	</div>
+</div>
+</div></div>
+<div class="c_details">
+<div class = "panel panel-default">
+   <div class = "panel-heading">
+	<h3>Contact Details</h3>
+</div>
+<div class = "panel-body">
+	<div class="input-group">	
+		<label for="name" class="name">Address</label>	 
+			<textarea id="text_area" name="address" rows="4" cols="22" id="address" class="form-control"  placeholder="Enter your Residential Address" required></textarea><br></td>
+	</div>
+	<div class="input-group">	
+		<label for="name" class="name">Marital Status</label>
+		<input type="text" name="pincode" size="20" id="pincode" maxlength="6" class="form-control"  placeholder="Pincode" onkeypress="return blockSpecialChar_number(event)"required></td>
+	</div>
+	<div class="input-group">	
+		<label for="name" class="name">City</label>
+			<select id="dropdown1" name="city"  class="form-control" required>
+								<option value="NA">--Select City--</option>
+								<option value="ariyalur">Ariyalur</option>
+								<option value="banglore">Bangalore</option>
+								<option value="chennai">Chennai</option>
+								<option value="dindugal">Dindugal</option>
+								<option value="erode">Erode</option>
+								<option value="hosur">Hosur</option>
+								<option value="karnataka">Karnataka</option>
+								<option value="madurai">Madurai</option>
+								<option value="nagapattinam">Nagapattinam</option>
+								<option value="puducherry">Puducherry</option>
+								<option value="salem">Salem</option>
+								<option value="trichy">Trichy</option>
+								<option value="vellore">Vellore</option>
+							</select>
+	</div>
+	<div class="input-group">	
+		<label for="name" class="name">Nationality :</label>
+		
+			<select id="dropdown2" name="nationality"   class="form-control" required>
+				<option value="NA">--Select Nationality--</option>
+				<option value="indian" >Indian</option>
+				<option value="others">Others</option>
+			</select>
+		</div>
+	
+	
+	<div class="input-group">	
+		<label for="name" class="name">Contact Number</label>
+			<div class="col-xs-8">
+				<input type="text" name="cnumber" id="cnumber" size="20" class="form-control" onkeypress="return blockSpecialChar_number(event)" maxlength="10" required><br></td>
+			</div>
+	</div>
+	<div class="input-group">	
+		<label for="name" class="name">Email ID</label>
+			<input type="text" name="email" id="email" size="20" class="form-control" onkeypress="return blockSpecialChar_emailid(event)" title="Feild must contain '@'" maxlength="30" required><br></td>
+	</div>
+	<div class="input-group">	
+		<label for="name" class="name">Password</label>
+			<input type="password" name="password" id="password" class="form-control" size="20" maxlength="5" required><br>
+	</div>
+</div>
+</div></div>
+<div class="e_details">
+<div class = "panel panel-default">
+   <div class = "panel-heading">	
+	<h3>Educational Qualifications</h3>
+</div>
+	<div class = "panel-body">
+		<div class="input-group">	
+			<label for="name" class="name">Qualification</label>
+				<select id="dropdown3" name="qualification" class="form-control" class="dropdown_list" required>
+					<option value="NA">--Select Degree--</option>
+					<option value="bsc">B.sc.</option>
+					<option value="be">B.E/B.Tech</option>
+					<option value="msc">M.Sc.</option>
+					<option value="me">M.E./M.Tech</option>
+					<option value="barch">B.Arch</option>
+				</select>
+		</div>
+		<div class="input-group">	
+			<label for="name" class="name">University</label>
+				<select id="dropdown4" name="university" class="form-control" class="dropdown_list"  required>
+					<option value="NA">--Select University--</option>
+					<option value="annauniv" selected="annauniv">Anna University</option>
+					<option value="muniv">Madras University</option>
+					<option value="others">Others</option>
+				</select>
+		</div>
+</div>
+</div></div>
+<table class="button">
+	<tr>
+		<td ><input type = "submit"  id="submit" value="Submit" class="submit_button" data-toogle="tooltip" data-placement="left" title="Click here to submit" /></td>
+			<td class="reset_btn"><input type = "reset" id="reset" value="Reset" class="reset_button" data-toogle="tooltip" data-placement="bottom" title="Click here..If you want to reset.!!"/></td>
+	</tr>
+</table>
+
+<script>
+$(document).ready(function(){
+	$('[data-toogle="tooltip"]').tooltip();
+});
+</script>
+	
+</form>
+</div>
+</body>
+</html>
