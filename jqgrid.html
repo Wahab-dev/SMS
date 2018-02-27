@@ -1,0 +1,49 @@
+<!-- Author : Priyadarshini D
+	Company Name : nWizara Infotech 
+	Date : 27-Feb-2018
+	Description : This Webpage contains jQuery Grid with Dummy data
+-->
+
+<html>
+<head>
+<title> Jquery Grid Example </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.3/css/ui.jqgrid.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.3/jquery.jqgrid.min.js"></script>
+	
+    
+
+</head>
+<body>
+	<table id = "grid">
+	</table>
+		<script type= "text/javascript">
+			$(function () {
+			"use strict";
+			$("#grid").jqGrid({
+				colModel: [
+					{ name: "FirstName",Label : "First Name" },
+					{ name: "LastName", Label : "Last Name" },
+					{ name: "date", label: "Date",  align: "center", sorttype: "date",
+						formatter: "date", formatoptions: { newformat: "d-M-Y" } },
+					{ name: "location", Label : "Location" },
+				],
+				data: [
+					{ id: 10, FirstName: "Priya", LastName: "Darshini", date :"1996-05-10", location : "Chennai"},
+					{ id: 20, FirstName: "Rumana", LastName: "Rumana", date : "1996-06-12",location :"Madurai"},
+					{ id: 30, FirstName: "Charles", LastName: "Babage",  date : "1986-12-18",location : "Pondicherry" },
+					{ id: 40, FirstName: "Barack", LastName: "Obama", date : "1986-02-28", location : "Kanchipuram" },
+					{ id: 50, FirstName: "Rajni", LastName: "Kanth",  date : "1995-08-20", location : "Salem" }
+				],
+				iconSet: "fontAwesome",
+				rownumbers: true,
+				sortname: "invdate",
+				sortorder: "desc",
+				caption: "jQuery Grid Example"
+			});
+		});
+	</script>
+</body>
+</html>

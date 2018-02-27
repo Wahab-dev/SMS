@@ -14,6 +14,13 @@
 	<script src="D:\Self Project\js\jquery-1.12.4.js"></script>
 	<script src="D:\Self Project\js\jquery-ui.js"></script>-->
 	
+	
+	<!--Script link for datetime picker Example-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script> 
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet">   
+		
+	
 <style>
 .img{
 	width:80px;
@@ -208,7 +215,7 @@ h3{
 			<a data-toggle="dropdown" class="dropdown-toggle">
 				<img src="../icons/avatarimage.png" class="img_user"/>
 				<span><?php echo $_session['username']?></span>
-				<span class="caret"></span>
+				<span>Username</span>
 			</a>
 			<ul class="dropdown-menu">
 				<li><span class="glyphicon glyphicon-user">My Profile<span></li>
@@ -294,7 +301,8 @@ h3{
 			<div class="row2">
 				<div class="panel panel-white">
 					<div class="calendar-panel">
-						<span class="calendar">Calendar : <input type="date" class="dob" id="dob" > </span>
+						<Strong>Select date : </strong>
+							<input type="text" id="datepicker"/>
 					</div>
 				</div>
 				<div class="row-right">
@@ -403,5 +411,15 @@ h3{
 		</div>
 	</div>
 </section>
+
+<!--Script for datetime picker Example-2-->
+	<script type="text/javascript">
+         $(function() {
+            $( "#datepicker" ).datepicker({
+               appendText:"(dd-mm-yy)",
+               dateFormat:"dd-mm-yy",
+            });
+         });
+    </script>
 </body>
 </html>
