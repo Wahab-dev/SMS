@@ -47,10 +47,10 @@
 					$studentDetails[] = $row;
 
 				}
-				
+
 				//converting the array of rows to jason
 
-				//echo json_encode($studentDetails); 
+				echo json_encode($studentDetails); 
 
 				return json_encode($studentDetails);
 			} 
@@ -63,25 +63,77 @@
 		//This function edit the student details 
 		public function edit_student_details()
 		{
-			echo $this->fetch_student_details();
+			if(isset($_GET['id']))
+				{
+					$id=$_GET['id'];
+				}
+			try 
+			{
+				$queryStr = $this->db->prepare("update crud_table set first_name =:first_name,last_name =:second_name ,email_id = :email_id,gender= :gender,age=:age where id=$id");
+
+				$queryStr->execute(array('first_name'=>$first_name, 'second_name' => $second_name, 'email_id' => $email_id, 'gender' => $gender, 'age' => $age ));
+
+			} 
+
+			catch (PDOException $e) 
+			{
+				echo $e->getMessage();
+			}
+
+			//echo $this->fetch_student_details();
 		}
 
 		//This function add the student details
 		public function add_student_details()
 		{
+			try 
+			{
+				if(isset($_POST) && !empty($_POST))
+				{
+					$first_name = $_POST['firstname'];
+					$second_name = $_POST['secondname'];
+					$email_id = $_POST['email'];
+					$gender = $_POST['gender'];
+					$age = $_POST['age'];
+
+				}
+
+				$queryStr=$this->db->prepare("insert into crud_table(first_name,last_name,email_id,gender,age) values(:first_name,:second_name,:email_id,:gender,:age)");
+
+				$queryStr->execute(array('first_name'=>$first_name, 'second_name' => $second_name, 'email_id' => $email_id, 'gender' => $gender, 'age' => $age ));
+
+			} 
+
+			catch (PDOException $e) 
+			{
+				echo $e->getMessage();
+			}
 
 		}
 
 		//This function delete the student details
 		public function delete_student_details()
 		{
+			if(isset($_GET['id']))
+			{
+				$id=$_GET['id'];
+			}
+			try 
+			{
+				$queryStr = $this->db->prepare("delete from crud_table where id=$id");
+				$queryStr->execute();
+			} 
 
+			catch (PDOException $e) 
+			{
+				echo $e->getMessage();
+			}
 		}
 
 	}
 
 		$studentdetail = new Student_Details();
-		$studentdetail->edit_student_details();
+		$studentdetail->fetch_student_details();
 
 	
 ?>
