@@ -1,0 +1,68 @@
+<!-- Author : Priyadarshini D
+	Company Name : nWizara Infotech 
+	Date : 27-Feb-2018
+	Description : This Webpage contains jQuery Grid with Dummy data
+-->
+
+<html>
+<head>
+<title> Jquery Grid Example </title>
+   
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/css/ui.jqgrid.css">
+	 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/jquery.jqGrid.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/i18n/grid.locale-en.js"></script>
+
+</head>
+<body>
+	<table id = "secondgrid"> 
+	</table>
+	<div id="secondpgr" >
+	</div>
+		<script type= "text/javascript">
+			var mydata = [
+					{ Id: 1, FirstName: "Priya", LastName: "Darshini", Age : "22"  },
+					{ Id: 2, FirstName: "Rumana", LastName: "Rumana", Age : "23"},
+					{ Id: 3, FirstName: "Ashika", LastName: "Jahir", Age : "23"  },
+					{ Id: 4, FirstName: "Barack", LastName: "Obama", Age : "65" },
+					{ Id: 5, FirstName: "Rajni", LastName: "Kanth", Age : "69"  },
+					{ Id: 6, FirstName: "Adharva", LastName: "Murali",Age : "23" },
+					{ Id: 7, FirstName: "Goutham", LastName: "Karthick",Age : "24" },
+					{ Id: 8, FirstName: "Kajal", LastName: "Agarwal",Age : "28" },
+					{ Id: 9, FirstName: "Nikil", LastName: "Kalrani",Age : "21" },
+					{ Id: 10, FirstName: "Abdul", LastName: "Wahab",Age : "26" },
+					{ Id: 11, FirstName: "Naseerudeen", LastName: "Mohammed", Age : "24"}
+				];
+			$("#secondgrid").jqGrid({
+				datatype:"local",
+				data: mydata,
+				colModel: [
+					//{ name : "ID",index :'id',Label : "ID",editable : true},
+					{ name: "FirstName",index:'first_name',Label : "First Name",editable:true},
+					{ name: "LastName",index:'last_name', Label : "Last Name",editable:true },
+					{ name: "Age",index:'age' ,Label : "Age",editable:true },
+					
+					
+				],
+			
+				rownumbers: true,
+				width : 800,
+				pager : "#secondpgr",
+				toppager :true,
+				//sortname: "invdate",
+				//sortorder: "desc", 
+				multiselect : true, //multiselect (Check box)
+				caption: "jQuery Grid Example"
+			});
+			//CRUD Operation @footer
+			$("#secondgrid").jqGrid('navGrid','#secondpgr',
+						{add:true,
+						edit: true},
+						{multipleSearch:true}
+						);		
+	</script>
+</body>
+</html>

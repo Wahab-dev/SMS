@@ -114,11 +114,31 @@ width:480px;
     margin-left: 600px;
 }
 .container{
-margin-top: 80px;
+margin-top: 55px;
 }
 .e_details{
 margin-top: -292px;
 }
+.img-circle{
+	width: 95px;
+    height: 95px;
+    margin-left: 1130px;
+    margin-top: -50px;
+	}
+.glyphicon-avatar{
+	border-radius:30%;
+	}
+.glyphicon-avatar .glyphicon {
+    position: relative;
+    top: 12px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    color: #08080870;
+    margin-left: -58px;
+    line-height: 1;
 </style>
 <script>
 function disable1()
@@ -170,141 +190,143 @@ function blockSpecialChar_emailid(e){
     </script>
 </head>
 <body>
-<a href="login.html"><p class="arrow_left"><span class="glyphicon glyphicon-arrow-left"></span></p></a>
-<h3 class="h3">Registration Form</h3>
+	<a href="login.html"><p class="arrow_left"><span class="glyphicon glyphicon-arrow-left"></span></p></a>
+	<h3 class="h3">Registration Form</h3>
 <form name="reg_form"  id="reg_form" action="regform.php" method="Post" >
-<div class="container">
-<div class="p_details">
-<div class = "panel panel-default">
-   <div class = "panel-heading">
-		<h2 class="personal_field">Personal Details</h2>
+	<div class="glyphicon-avatar">
+		<img src="avatar.png" alt=" " class="img-circle"><span class="glyphicon glyphicon-camera"></span>
 	</div>
-	
-   <div class = "panel-body">
-	<div class="input-group">
-	<label for="name" class="name">First Name </label>
-		<input type="text" name="fname" id="firstname" class="form-control" placeholder="FirstName" onkeypress="return blockSpecialChar(event)" required><br>	
-</div>
-<div class="input-group">
-	<label for="name" class="name">Last Name	</label>
-	<input type="text" name="lname" id="lastname" class="form-control" placeholder="LastName" onkeypress="return blockSpecialChar(event)" required><br>
-</div>	
-<div class="input-group">
-		<label for="name" class="name">Gender	</label>
-		<input type="radio" name="gender" value="Male" id="male" required>Male
-			 <input type="radio" name="gender" value="Female" id="female">Female<br>
-	</div>	
-<div class="input-group">	
-	<label for="name" class="name">D.O.B.	</label>
-	<input type="text" class="dob" name="dob" size="20" id="dob" class="form-control" required ><br>
-	</div>	
-<div class="input-group">	
-	<label for="name" class="name">Marital Status </label>	
-		<input type="checkbox" name="mstatus" value="Single" id="single"  onclick="disable1()" >Single
-			<input type="checkbox" name="mstatus" value="Married" id="married"  onclick="disable2()">Married<br>
-	</div>
-</div>
-</div></div>
-<div class="c_details">
-<div class = "panel panel-default">
-   <div class = "panel-heading">
-	<h3>Contact Details</h3>
-</div>
-<div class = "panel-body">
-	<div class="input-group">	
-		<label for="name" class="name">Address</label>	 
-			<textarea id="text_area" name="address" rows="4" cols="22" id="address" class="form-control"  placeholder="Enter your Residential Address" required></textarea><br></td>
-	</div>
-	<div class="input-group">	
-		<label for="name" class="name">Marital Status</label>
-		<input type="text" name="pincode" size="20" id="pincode" maxlength="6" class="form-control"  placeholder="Pincode" onkeypress="return blockSpecialChar_number(event)"required></td>
-	</div>
-	<div class="input-group">	
-		<label for="name" class="name">City</label>
-			<select id="dropdown1" name="city"  class="form-control" required>
-								<option value="NA">--Select City--</option>
-								<option value="ariyalur">Ariyalur</option>
-								<option value="banglore">Bangalore</option>
-								<option value="chennai">Chennai</option>
-								<option value="dindugal">Dindugal</option>
-								<option value="erode">Erode</option>
-								<option value="hosur">Hosur</option>
-								<option value="karnataka">Karnataka</option>
-								<option value="madurai">Madurai</option>
-								<option value="nagapattinam">Nagapattinam</option>
-								<option value="puducherry">Puducherry</option>
-								<option value="salem">Salem</option>
-								<option value="trichy">Trichy</option>
-								<option value="vellore">Vellore</option>
-							</select>
-	</div>
-	<div class="input-group">	
-		<label for="name" class="name">Nationality :</label>
-		
-			<select id="dropdown2" name="nationality"   class="form-control" required>
-				<option value="NA">--Select Nationality--</option>
-				<option value="indian" >Indian</option>
-				<option value="others">Others</option>
-			</select>
-		</div>
-	
-	
-	<div class="input-group">	
-		<label for="name" class="name">Contact Number</label>
-			<div class="col-xs-8">
-				<input type="text" name="cnumber" id="cnumber" size="20" class="form-control" onkeypress="return blockSpecialChar_number(event)" maxlength="10" required><br></td>
+	<div class="container">
+		<div class="p_details">
+			<div class = "panel panel-default">
+				<div class = "panel-heading">
+					<h2 class="personal_field">Personal Details</h2>
+				</div>
+				<div class = "panel-body">
+					<div class="input-group">
+						<label for="name" class="name">First Name </label>
+						<input type="text" name="fname" id="firstname" class="form-control" placeholder="FirstName" onkeypress="return blockSpecialChar(event)" required><br>	
+					</div>
+					<div class="input-group">
+						<label for="name" class="name">Last Name	</label>
+						<input type="text" name="lname" id="lastname" class="form-control" placeholder="LastName" onkeypress="return blockSpecialChar(event)" required><br>
+					</div>	
+					<div class="input-group">
+							<label for="name" class="name">Gender	</label>
+							<input type="radio" name="gender" value="Male" id="male" required>Male
+							<input type="radio" name="gender" value="Female" id="female">Female<br>
+					</div>	
+					<div class="input-group">	
+						<label for="name" class="name">D.O.B.	</label>
+						<input type="text" class="dob" name="dob" size="20" id="dob" class="form-control" required ><br>
+					</div>	
+					<div class="input-group">	
+						<label for="name" class="name">Marital Status </label>	
+						<input type="checkbox" name="mstatus" value="Single" id="single"  onclick="disable1()" >Single
+						<input type="checkbox" name="mstatus" value="Married" id="married"  onclick="disable2()">Married<br>
+					</div>
+				</div>
 			</div>
-	</div>
-	<div class="input-group">	
-		<label for="name" class="name">Email ID</label>
-			<input type="text" name="email" id="email" size="20" class="form-control" onkeypress="return blockSpecialChar_emailid(event)" title="Feild must contain '@'" maxlength="30" required><br></td>
-	</div>
-	<div class="input-group">	
-		<label for="name" class="name">Password</label>
-			<input type="password" name="password" id="password" class="form-control" size="20" maxlength="5" required><br>
-	</div>
-</div>
-</div></div>
-<div class="e_details">
-<div class = "panel panel-default">
-   <div class = "panel-heading">	
-	<h3>Educational Qualifications</h3>
-</div>
-	<div class = "panel-body">
-		<div class="input-group">	
-			<label for="name" class="name">Qualification</label>
-				<select id="dropdown3" name="qualification" class="form-control" class="dropdown_list" required>
-					<option value="NA">--Select Degree--</option>
-					<option value="bsc">B.sc.</option>
-					<option value="be">B.E/B.Tech</option>
-					<option value="msc">M.Sc.</option>
-					<option value="me">M.E./M.Tech</option>
-					<option value="barch">B.Arch</option>
-				</select>
 		</div>
-		<div class="input-group">	
-			<label for="name" class="name">University</label>
-				<select id="dropdown4" name="university" class="form-control" class="dropdown_list"  required>
-					<option value="NA">--Select University--</option>
-					<option value="annauniv" selected="annauniv">Anna University</option>
-					<option value="muniv">Madras University</option>
-					<option value="others">Others</option>
-				</select>
+		<div class="c_details">
+			<div class = "panel panel-default">
+				<div class = "panel-heading">
+					<h3>Contact Details</h3>
+				</div>
+				<div class = "panel-body">
+				<div class="input-group">	
+					<label for="name" class="name">Address</label>	 
+						<textarea id="text_area" name="address" rows="4" cols="22" id="address" class="form-control"  placeholder="Enter your Residential Address" required></textarea><br></td>
+				</div>
+				<div class="input-group">	
+					<label for="name" class="name">Marital Status</label>
+					<input type="text" name="pincode" size="20" id="pincode" maxlength="6" class="form-control"  placeholder="Pincode" onkeypress="return blockSpecialChar_number(event)"required></td>
+				</div>
+				<div class="input-group">	
+					<label for="name" class="name">City</label>
+						<select id="dropdown1" name="city"  class="form-control" required>
+											<option value="NA">--Select City--</option>
+											<option value="ariyalur">Ariyalur</option>
+											<option value="banglore">Bangalore</option>
+											<option value="chennai">Chennai</option>
+											<option value="dindugal">Dindugal</option>
+											<option value="erode">Erode</option>
+											<option value="hosur">Hosur</option>
+											<option value="karnataka">Karnataka</option>
+											<option value="madurai">Madurai</option>
+											<option value="nagapattinam">Nagapattinam</option>
+											<option value="puducherry">Puducherry</option>
+											<option value="salem">Salem</option>
+											<option value="trichy">Trichy</option>
+											<option value="vellore">Vellore</option>
+										</select>
+				</div>
+				<div class="input-group">	
+					<label for="name" class="name">Nationality :</label>
+					<select id="dropdown2" name="nationality"   class="form-control" required>
+						<option value="NA">--Select Nationality--</option>
+						<option value="indian" >Indian</option>
+						<option value="others">Others</option>
+					</select>
+				</div> 
+				<div class="input-group">	
+				<label for="name" class="name">Contact Number</label>
+					<div class="col-xs-8">
+						<input type="text" name="cnumber" id="cnumber" size="20" class="form-control" onkeypress="return blockSpecialChar_number(event)" maxlength="10" required><br></td>
+					</div>
+				</div>
+				<div class="input-group">	
+					<label for="name" class="name">Email ID</label>
+						<input type="text" name="email" id="email" size="20" class="form-control" onkeypress="return blockSpecialChar_emailid(event)" title="Feild must contain '@'" maxlength="30" required><br></td>
+				</div>
+				<div class="input-group">	
+					<label for="name" class="name">Password</label>
+						<input type="password" name="password" id="password" class="form-control" size="20" maxlength="5" required><br>
+				</div>
+			</div>
 		</div>
-</div>
-</div></div>
-<table class="button">
-	<tr>
-		<td ><input type = "submit"  id="submit" value="Submit" class="submit_button" data-toogle="tooltip" data-placement="left" title="Click here to submit" /></td>
-			<td class="reset_btn"><input type = "reset" id="reset" value="Reset" class="reset_button" data-toogle="tooltip" data-placement="bottom" title="Click here..If you want to reset.!!"/></td>
-	</tr>
-</table>
+	</div>
+	<div class="e_details">
+		<div class = "panel panel-default">
+			<div class = "panel-heading">	
+				<h3>Educational Qualifications</h3>
+			</div>
+			<div class = "panel-body">
+			<div class="input-group">	
+				<label for="name" class="name">Qualification</label>
+					<select id="dropdown3" name="qualification" class="form-control" class="dropdown_list" required>
+						<option value="NA">--Select Degree--</option>
+						<option value="bsc">B.sc.</option>
+						<option value="be">B.E/B.Tech</option>
+						<option value="msc">M.Sc.</option>
+						<option value="me">M.E./M.Tech</option>
+						<option value="barch">B.Arch</option>
+					</select>
+				</div>
+				<div class="input-group">	
+					<label for="name" class="name">University</label>
+					<select id="dropdown4" name="university" class="form-control" class="dropdown_list"  required>
+						<option value="NA">--Select University--</option>
+						<option value="annauniv" selected="annauniv">Anna University</option>
+						<option value="muniv">Madras University</option>
+						<option value="others">Others</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<table class="button">
+		<tr>
+			<td ><input type = "submit"  id="submit" value="Submit" class="submit_button" data-toogle="tooltip" data-placement="left" title="Click here to submit" /></td>
+				<td class="reset_btn"><input type = "reset" id="reset" value="Reset" class="reset_button" data-toogle="tooltip" data-placement="bottom" title="Click here..If you want to reset.!!"/></td>
+		</tr>
+	</table>
 
-<script>
-$(document).ready(function(){
-	$('[data-toogle="tooltip"]').tooltip();
-});
-</script>
+	<script>
+	$(document).ready(function(){
+		$('[data-toogle="tooltip"]').tooltip();
+	});
+	</script>
 	
 </form>
 </div>
