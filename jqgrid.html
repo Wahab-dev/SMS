@@ -7,43 +7,62 @@
 <html>
 <head>
 <title> Jquery Grid Example </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.3/css/ui.jqgrid.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.3/jquery.jqgrid.min.js"></script>
+   
 	
-    
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/css/ui.jqgrid.css">
+	 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/jquery.jqGrid.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/i18n/grid.locale-en.js"></script>
 
 </head>
 <body>
-	<table id = "grid">
+	<table id = "secondgrid"> 
 	</table>
+	<div id="secondpgr" >
+	</div>
 		<script type= "text/javascript">
-			$(function () {
-			"use strict";
-			$("#grid").jqGrid({
+			var mydata = [
+					{ Id: 1, FirstName: "Priya", LastName: "Darshini", Age : "22"  },
+					{ Id: 2, FirstName: "Rumana", LastName: "Rumana", Age : "23"},
+					{ Id: 3, FirstName: "Ashika", LastName: "Jahir", Age : "23"  },
+					{ Id: 4, FirstName: "Barack", LastName: "Obama", Age : "65" },
+					{ Id: 5, FirstName: "Rajni", LastName: "Kanth", Age : "69"  },
+					{ Id: 6, FirstName: "Adharva", LastName: "Murali",Age : "23" },
+					{ Id: 7, FirstName: "Goutham", LastName: "Karthick",Age : "24" },
+					{ Id: 8, FirstName: "Kajal", LastName: "Agarwal",Age : "28" },
+					{ Id: 9, FirstName: "Nikil", LastName: "Kalrani",Age : "21" },
+					{ Id: 10, FirstName: "Abdul", LastName: "Wahab",Age : "26" },
+					{ Id: 11, FirstName: "Naseerudeen", LastName: "Mohammed", Age : "24"}
+				];
+			$("#secondgrid").jqGrid({
+				datatype:"local",
+				data: mydata,
 				colModel: [
-					{ name: "FirstName",Label : "First Name" },
-					{ name: "LastName", Label : "Last Name" },
-					{ name: "date", label: "Date",  align: "center", sorttype: "date",
-						formatter: "date", formatoptions: { newformat: "d-M-Y" } },
-					{ name: "location", Label : "Location" },
+					//{ name : "ID",index :'id',Label : "ID",editable : true},
+					{ name: "FirstName",index:'first_name',Label : "First Name",editable:true},
+					{ name: "LastName",index:'last_name', Label : "Last Name",editable:true },
+					{ name: "Age",index:'age' ,Label : "Age",editable:true },
+					
+					
 				],
-				data: [
-					{ id: 10, FirstName: "Priya", LastName: "Darshini", date :"1996-05-10", location : "Chennai"},
-					{ id: 20, FirstName: "Rumana", LastName: "Rumana", date : "1996-06-12",location :"Madurai"},
-					{ id: 30, FirstName: "Charles", LastName: "Babage",  date : "1986-12-18",location : "Pondicherry" },
-					{ id: 40, FirstName: "Barack", LastName: "Obama", date : "1986-02-28", location : "Kanchipuram" },
-					{ id: 50, FirstName: "Rajni", LastName: "Kanth",  date : "1995-08-20", location : "Salem" }
-				],
-				iconSet: "fontAwesome",
+			
 				rownumbers: true,
-				sortname: "invdate",
-				sortorder: "desc",
+				width : 800,
+				pager : "#secondpgr",
+				toppager :true,
+				//sortname: "invdate",
+				//sortorder: "desc", 
+				multiselect : true, //multiselect (Check box)
 				caption: "jQuery Grid Example"
 			});
-		});
+			//CRUD Operation @footer
+			$("#secondgrid").jqGrid('navGrid','#secondpgr',
+						{add:true,
+						edit: true},
+						{multipleSearch:true}
+						);		
 	</script>
 </body>
 </html>
