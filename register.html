@@ -197,7 +197,7 @@ function blockSpecialChar_emailid(e){
 <body>
 	<a href="login.html"><p class="arrow_left"><span class="glyphicon glyphicon-arrow-left"></span></p></a>
 	<h3 class="h3">Registration Form</h3>
-<form name="reg_form"  id="reg_form" action="register_form.php" method="Post" >
+<form name="reg_form"  id="reg_form" action="register_form.php" method="Post" enctype="multipart/form-data">
 	<!--<div class="glyphicon-avatar">
 		<img src="avatar.png" alt=" " class="img-circle"><span class="glyphicon glyphicon-camera"></span>
 	</div>-->
@@ -283,7 +283,7 @@ function blockSpecialChar_emailid(e){
 				
 				<div class="input-group">	
 					<label for="name" class="name">File Upload</label><br>
-						<input type="file" name="file" size="40">
+						<input type="file" name="filename" size="40">
 							<input type="submit" class="fileupload" value="Send" required>
 				</div>
 				<div class="input-group">	
