@@ -18,44 +18,6 @@
 */
 
 
-		$firstName = $_POST['firstName'];
-		$lastName = $_POST['lastName'];
-		$gender = $_POST['gender'];
-		$dateOfBirth = $_POST['dateOfBirth'];
-		$maritalStatus = $_POST['maritalStatus'];
-
-		$qualification = $_POST['qualification'];
-		$university = $_POST['university'];
-
-		$address = $_POST['address'];
-		$pinCode = $_POST['pinCode'];
-		$city = $_POST['city'];
-		$nationality = $_POST['nationality'];
-		$contactNo = $_POST['contactNo'];
-
-		$file = $_POST['file'];
-
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-
-
-
-		echo $firstName;echo '<br>';
-		echo $lastName;echo '<br>';
-		echo $gender;echo '<br>';
-		echo $dateOfBirth;echo '<br>';
-		echo $maritalStatus;echo '<br>';
-		echo $qualification;echo '<br>';
-		echo $university;echo '<br>';
-		echo $address;echo '<br>';
-		echo $pinCode;echo '<br>';
-		echo $city;echo '<br>';
-		echo $nationality;echo '<br>';
-		echo $contactNo;echo '<br>';
-		echo $file;echo '<br>';
-		echo $email;echo '<br>';
-		echo $password;echo '<br>'; 
-
 	class Register
 	{
 		public $db = '';
@@ -67,13 +29,12 @@
 			//connecting to db - sms_wizara
 			$this->db = new PDO("mysql:host=localhost;dbname=sms_wizara","ashi", "ashikajahir");
 			$this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-
-			//calls the main function of class
 			
 		}
 		public function register_user() 
 		{
-			
+			$response = "";
+
 			if (!empty($_POST['submit']))
 			 {
 				$firstName = $_POST['firstName'];
@@ -89,24 +50,52 @@
 				$pinCode = $_POST['pinCode'];
 				$city = $_POST['city'];
 				$nationality = $_POST['nationality'];
-				$contactNo = $_POST['contactNo'];
-
-				$file = $_POST['file'];
+				$contactNo = $_POST['contactNo'];				
 
 				$email = $_POST['email'];
-				//$password = $_POST['password'];
+				
 				$password = password_hash($_POST['password'],PASSWORD_DEFAULT);
-			 }		
+			 }
+
+			 //Below if checks the uploaded file.
+			 if(isset($_FILES['filename']) && ($_FILES['filename']['error'] == UPLOAD_ERR_OK))
+			{
+				$upload_dir = $_SERVER['DOCUMENT_ROOT'] . "/tmp/"; //the directory in which the file gets stored
+
+				//this checks whether the directory exists and it is writable
+				if (is_dir($upload_dir) && is_writable($upload_dir))
+				{
+					if (move_uploaded_file($_FILES['filename']['tmp_name'], $upload_dir.$_FILES['filename']['name'])) //it moves the temp file to new directory
+					{
+						$filename = $upload_dir.$_FILES['filename']['name'];				
+					}
+					else 
+					{
+						echo "Couldn't move file to new directory";
+					}
+				}
+				else
+				{
+		    		echo "Upload directory is not writable, or does not exist.";
+				}
+
+			}
+
+
+
 			try 
 			{
 				//creates the PDO statement
 				$queryStr = $this->db->prepare("INSERT INTO register_user (firstname,lastname,gender,dateofbirth,maritalstatus,qualification,university,address,pinCode,city,nationality,contactnumber,filename,email,password)VALUES (:firstname,:lastname,:gender,:dateofbirth,:maritalstatus,:qualification,:university,:address,:pinCode,:city,:nationality,:contactnumber,:filename,:email,:password)"); 
 
-				//executes the query
-				$queryStr->execute(array('firstname' => $firstName,'lastname' => $lastName,'gender' => $gender,'dateofbirth' => $dateOfBirth,'maritalstatus'=>$maritalStatus,'qualification'=>$qualification,'university'=>$university,'address'=>$address,'pinCode'=>$pinCode,'city'=>$city,'nationality'=>$nationality,'contactnumber'=>$contactNo,'filename'=>$file,'email'=>$email,'password'=>$password));
+				//executes the insert query
+				$queryStr->execute(array('firstname' => $firstName,'lastname' => $lastName,'gender' => $gender,'dateofbirth' => $dateOfBirth,'maritalstatus'=>$maritalStatus,'qualification'=>$qualification,'university'=>$university,'address'=>$address,'pinCode'=>$pinCode,'city'=>$city,'nationality'=>$nationality,'contactnumber'=>$contactNo,'filename'=>$filename,'email'=>$email,'password'=>$password));
 
-				//Display the message
-				//echo "New User.....Successfully Registered";
+				
+				//$response = "New User.....Successfully Registered";
+				$this->fetch_detail();
+
+
 				
 			} 
 			catch (PDOException $e) 
@@ -114,8 +103,7 @@
 				echo $e->getMessage();
 			}
 
-			//$query->closeCursor(); //frees up the connection to the server so that other SQL statements may be issued, 
-			//$db = null;			
+						
 		}
 
 		public function fetch_detail()
@@ -169,8 +157,6 @@
 
 	$new_user = new Register();//Creates an object of class Register everytime a new user register.*/
 	$new_user->register_user();
-	$new_user->fetch_detail();
-
 
 
 
