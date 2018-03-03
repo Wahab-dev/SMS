@@ -26,7 +26,7 @@
 		public function __construct()
 		{
 			//connecting to db - crud
-			$this->db = new PDO("mysql:host=localhost;dbname=crud","ashi", "ashikajahir");
+			$this->db = new PDO("mysql:host=localhost;dbname=crud","priya", "db");
 			$this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 		}

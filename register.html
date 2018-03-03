@@ -117,7 +117,7 @@ width:480px;
 margin-top: 55px;
 }
 .e_details{
-margin-top: -292px;
+margin-top:-295px;
 }
 .img-circle{
 	width: 95px;
@@ -125,7 +125,7 @@ margin-top: -292px;
     margin-left: 1130px;
     margin-top: -50px;
 	}
-.glyphicon-avatar{
+<!--.glyphicon-avatar{
 	border-radius:30%;
 	}
 .glyphicon-avatar .glyphicon {
@@ -139,6 +139,11 @@ margin-top: -292px;
     color: #08080870;
     margin-left: -58px;
     line-height: 1;
+	}-->
+.fileupload{
+	margin-top: -25px;
+    margin-left: 220px;
+}
 </style>
 <script>
 function disable1()
@@ -193,9 +198,9 @@ function blockSpecialChar_emailid(e){
 	<a href="login.html"><p class="arrow_left"><span class="glyphicon glyphicon-arrow-left"></span></p></a>
 	<h3 class="h3">Registration Form</h3>
 <form name="reg_form"  id="reg_form" action="regform.php" method="Post" >
-	<div class="glyphicon-avatar">
+	<!--<div class="glyphicon-avatar">
 		<img src="avatar.png" alt=" " class="img-circle"><span class="glyphicon glyphicon-camera"></span>
-	</div>
+	</div>-->
 	<div class="container">
 		<div class="p_details">
 			<div class = "panel panel-default">
@@ -274,6 +279,12 @@ function blockSpecialChar_emailid(e){
 					<div class="col-xs-8">
 						<input type="text" name="cnumber" id="cnumber" size="20" class="form-control" onkeypress="return blockSpecialChar_number(event)" maxlength="10" required><br></td>
 					</div>
+				</div>
+				
+				<div class="input-group">	
+					<label for="name" class="name">File Upload</label><br>
+						<input type="file" name="datafile" size="40">
+							<input type="submit" class="fileupload" value="Send" required>
 				</div>
 				<div class="input-group">	
 					<label for="name" class="name">Email ID</label>
