@@ -22,6 +22,7 @@
 <div>
 	<table id = "secondgrid"> 
 	</table>
+<<<<<<< HEAD
 
 </div>
 	
@@ -29,6 +30,24 @@
 	</div-->
 	<script type= "text/javascript">
 			
+=======
+	<div id="secondpgr" >
+	</div>
+		<script type= "text/javascript">
+			/*var mydata = [
+					{ Id: 1, FirstName: "Priya", LastName: "Darshini", Age : "22"  },
+					{ Id: 2, FirstName: "Rumana", LastName: "Rumana", Age : "23"},
+					{ Id: 3, FirstName: "Ashika", LastName: "Jahir", Age : "23"  },
+					{ Id: 4, FirstName: "Barack", LastName: "Obama", Age : "65" },
+					{ Id: 5, FirstName: "Rajni", LastName: "Kanth", Age : "69"  },
+					{ Id: 6, FirstName: "Adharva", LastName: "Murali",Age : "23" },
+					{ Id: 7, FirstName: "Goutham", LastName: "Karthick",Age : "24" },
+					{ Id: 8, FirstName: "Kajal", LastName: "Agarwal",Age : "28" },
+					{ Id: 9, FirstName: "Nikil", LastName: "Kalrani",Age : "21" },
+					{ Id: 10, FirstName: "Abdul", LastName: "Wahab",Age : "26" },
+					{ Id: 11, FirstName: "Naseerudeen", LastName: "Mohammed", Age : "24"}
+				];*/
+>>>>>>> Priya
 			var mydata = [
 			{"first_name":"Lisa","last_name":"Cuddy","age":"23"},
 			{"first_name":"Eric","last_name":"Thirteen","age":"21"},
@@ -36,6 +55,7 @@
 			{"first_name":"Chris","last_name":"Taub","age":"24"},
 			{"first_name":"Goku","last_name":"Pikachu","age":"21"}
 			];
+<<<<<<< HEAD
 
 
 			$("#secondgrid").jqGrid({
@@ -45,6 +65,14 @@
 				//data: mydata,
 				colNames:['First Name','Second Name','Age'],
 				colModel:[ 
+=======
+
+			$("#secondgrid").jqGrid({
+				url:'student_file.php', 
+				datatype:"local",
+				data: mydata,
+				colModel: [
+>>>>>>> Priya
 					//{ name : "ID",index :'id',Label : "ID",editable : true},
 					{ name: "first_name",index:'first_name',Label : "First Name",editable:true},
 					{ name: "last_name",index:'last_name', Label : "Last Name",editable:true },
