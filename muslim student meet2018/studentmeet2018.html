@@ -1,0 +1,185 @@
+<!--Name : Priyadarshini
+	Company Name : nWizara Infotech
+	Date : 07-March-2018 
+	Description : Register page for Muslim Students Meet 2018 -->
+	
+<html>
+<head>
+<title> Muslim Students Meet 2018</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+<style>
+	#text_area{
+	resize:none;
+}
+h2{
+	font-family:calibri;
+}
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #ecce7fcc;
+    border-color: #ddd;
+}
+.panel-default{
+	width:520px;
+}
+.panel-heading {
+    padding: 5px 70px;
+	}
+.input-group .form-control{
+	width:285px;
+}
+.input-group{
+	padding-top: 25px;
+}
+.name {
+	color: #b78517;
+    margin-top: 5px;
+    margin-left: -425px;
+	}
+.gender{
+	color: #b78517;
+	margin-left:28px;
+	}
+.gender_role{
+	margin-left:80px;
+	}
+.form-control{
+	margin-left: 170px;
+	}
+.panel{
+	margin-left: 350px;
+    margin-top: 30px;
+}
+input[type=radio] {
+    margin: 5px 13px 12px;
+    /* padding-left: 50px; */
+    margin-left: 100px;
+    margin-top: 1px\9;
+    line-height: normal;
+}
+.btn-success{
+	margin-left: 170px;
+}
+.button1{
+padding-top: 30px;
+    margin-top: 20px;
+    margin-left: 120px;
+}
+.button2{
+	padding-left: 24px;
+    padding-right: 20px;
+    margin-left: 260px;
+	margin-top: -45px;
+}
+.btn {
+	padding: 6px 15px;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-family: Gothia;
+    font-size: 17px;
+}
+.submit_button{
+	background-color:#4CAF50;
+	color:#fff;
+	text-align:center;
+	border:none;
+	font-size: 15px;
+    padding: 12px 25px;
+	display: inline-block;
+	text-decoration: none;
+	border-radius: 8px;
+}
+.reset_button{
+	background-color: #f44336;
+	color:#fff;
+	text-align:center;
+	border:none;
+	font-size: 15px;
+    padding: 12px 25px;
+	display: inline-block;
+	text-decoration: none;
+	border-radius: 8px;
+}
+</style>
+</head>
+<body>
+	<form name="reg_form"  id="studentform" action="studentform.php" method="Post" >
+		<div class="container">
+			<div class = "panel panel-default">
+				<div class = "panel-heading">
+					<h2>Muslim Students Meet 2018</h2>
+				</div>
+				<div class = "panel-body">
+					<div class="input-group">
+						<label for="name" class="name">Name </label>
+						<input type="text" name="name" id="name" class="form-control" placeholder="Name" onkeypress="return blockSpecialChar(event)" required><br>	
+					</div>
+					<div class="input-group">
+						<label for="name" class="gender">Gender	</label>
+						<input type="radio" name="gender" value="Male" class="gender_role" id="male" required>Male
+						<input type="radio" name="gender" value="Female" id="female">Female<br>
+					</div>
+					<div class="input-group">
+						<label for="age" class="name">Age </label>
+						<input type="text" name="name" id="age" class="form-control" placeholder="Age" onkeypress="return blockSpecialage(event)" maxlength="2" required><br>	
+					</div>					
+					<div class="input-group">	
+						<label for="emailid" class="name">Email ID</label>
+						<input type="text" name="emailid" id="email_id" size="20" class="form-control" placeholder="Email-ID" onkeypress="return blockSpecialChar_emailid(event)" title="Feild must contain '@'" maxlength="30" required><br>
+					</div>
+					<div class="input-group">
+						<label for="college_name" class="name">College Name </label>
+						<input type="text" name="name" id="college_name" class="form-control" placeholder="College Name"  onkeypress="return blockSpecialChar(event)" required><br>	
+					</div>
+					<div class="input-group">	
+						<label for="place" class="name">Place</label>	 
+						<textarea id="text_area" name="place" rows="4" cols="22" id="address" class="form-control"  placeholder="Enter your Residential Address" required></textarea><br></td>
+					</div>
+					<div class="input-group">
+						<label for="contactnumber" class="name">Contact Number </label>
+						<input type="text" name="contact_number" id="contactnumber" class="form-control" placeholder="Contact Number" onkeypress="return blockSpecialChar_number(event)" maxlength="10" required><br>	
+					</div>
+					<div class="button1">
+						<input type = "submit"  id="submit" value="Submit" class="submit_button" data-toogle="tooltip" data-placement="left" title="Click here to submit"  />
+						<!--<button type="button" class="btn btn-success" data-toogle="tooltip" data-placement="left" title="Click here to submit">Submit</button>-->
+					</div>
+					<div class="button2">
+						<!--<button type="button" class="btn btn-danger" data-toogle="tooltip" data-placement="top" title="Click here..If you want to reset.!!">Reset</button>-->
+						<input type = "reset" id="reset" value="Reset" class="reset_button" data-toogle="tooltip" data-placement="bottom" title="Click here..If you want to reset.!!"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+<script>
+	$(document).ready(function(){
+	$('[data-toogle="tooltip"]').tooltip();
+});
+</script>
+<script>
+function blockSpecialChar(e){
+		var k;
+		document.all ? k=e.keycode : k=e.which;
+		return ((k>64 && k<91) || (k>96 && k<123) || k==8 ||k==32 || (k>=48 && k<=57));
+		}
+function blockSpecialChar_number(e){
+		var k;
+		document.all ? k=e.keycode : k=e.which;
+		return (k==8 ||k==32 || (k>=48 && k<=57));
+		}
+function blockSpecialChar_emailid(e){
+		var k;
+		document.all ? k=e.keycode : k=e.which;
+		return ((k>64 && k<91) || (k>96 && k=123)||k==8 ||k==32 ||k==64 ||k==190 ||(k>124 && k<219)  || (k>=48 && k<=57));
+		}
+	</script>
+</body>
+</html>
+	
