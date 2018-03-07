@@ -8,7 +8,6 @@
 <head>
 <title> Jquery Grid Example </title>
    
-	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/css/ui.jqgrid.css">
 	 
@@ -20,9 +19,18 @@
 
 <body>
 
-
+<div>
 	<table id = "secondgrid"> 
 	</table>
+<<<<<<< HEAD
+
+</div>
+	
+	<!--div id="secondpgr" >
+	</div-->
+	<script type= "text/javascript">
+			
+=======
 	<div id="secondpgr" >
 	</div>
 		<script type= "text/javascript">
@@ -39,6 +47,7 @@
 					{ Id: 10, FirstName: "Abdul", LastName: "Wahab",Age : "26" },
 					{ Id: 11, FirstName: "Naseerudeen", LastName: "Mohammed", Age : "24"}
 				];*/
+>>>>>>> Priya
 			var mydata = [
 			{"first_name":"Lisa","last_name":"Cuddy","age":"23"},
 			{"first_name":"Eric","last_name":"Thirteen","age":"21"},
@@ -46,12 +55,24 @@
 			{"first_name":"Chris","last_name":"Taub","age":"24"},
 			{"first_name":"Goku","last_name":"Pikachu","age":"21"}
 			];
+<<<<<<< HEAD
+
+
+			$("#secondgrid").jqGrid({
+				url:'student_file_demo.php?name=name', 
+				datatype:'json',
+				mtype:'GET',
+				//data: mydata,
+				colNames:['First Name','Second Name','Age'],
+				colModel:[ 
+=======
 
 			$("#secondgrid").jqGrid({
 				url:'student_file.php', 
 				datatype:"local",
 				data: mydata,
 				colModel: [
+>>>>>>> Priya
 					//{ name : "ID",index :'id',Label : "ID",editable : true},
 					{ name: "first_name",index:'first_name',Label : "First Name",editable:true},
 					{ name: "last_name",index:'last_name', Label : "Last Name",editable:true },
@@ -59,22 +80,28 @@
 					
 					
 				],
-			
+					jsonReader : {
+			repeatitems:false,
+			root: "rows",
+			page: "page", //calls first
+			total: "total" ,//calls Second
+			records: "records" //calls Third
+		},
 				rownumbers: true,
 				width : 800,
-				pager : "#secondpgr",
-				toppager :true,
+				//pager : "#secondpgr",
+				//toppager :true,
 				//sortname: "invdate",
 				//sortorder: "desc", 
 				multiselect : true, //multiselect (Check box)
 				caption: "jQuery Grid Example"
 			});
 			//CRUD Operation @footer
-			$("#secondgrid").jqGrid('navGrid','#secondpgr',
+			/*$("#secondgrid").jqGrid('navGrid','#secondpgr',
 						{add:true,
 						edit: true},
 						{multipleSearch:true}
-						);		
-	</script>
+						);	*/	
+	</script>		
 </body>
 </html>

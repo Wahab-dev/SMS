@@ -197,7 +197,7 @@ function blockSpecialChar_emailid(e){
 <body>
 	<a href="login.html"><p class="arrow_left"><span class="glyphicon glyphicon-arrow-left"></span></p></a>
 	<h3 class="h3">Registration Form</h3>
-<form name="reg_form"  id="reg_form" action="regform.php" method="Post" >
+<form name="reg_form"  id="reg_form" action="register_form.php" method="Post" enctype="multipart/form-data">
 	<!--<div class="glyphicon-avatar">
 		<img src="avatar.png" alt=" " class="img-circle"><span class="glyphicon glyphicon-camera"></span>
 	</div>-->
@@ -210,11 +210,11 @@ function blockSpecialChar_emailid(e){
 				<div class = "panel-body">
 					<div class="input-group">
 						<label for="name" class="name">First Name </label>
-						<input type="text" name="fname" id="firstname" class="form-control" placeholder="FirstName" onkeypress="return blockSpecialChar(event)" required><br>	
+						<input type="text" name="firstName" id="firstname" class="form-control" placeholder="FirstName" onkeypress="return blockSpecialChar(event)" required><br>	
 					</div>
 					<div class="input-group">
 						<label for="name" class="name">Last Name	</label>
-						<input type="text" name="lname" id="lastname" class="form-control" placeholder="LastName" onkeypress="return blockSpecialChar(event)" required><br>
+						<input type="text" name="lastName" id="lastname" class="form-control" placeholder="LastName" onkeypress="return blockSpecialChar(event)" required><br>
 					</div>	
 					<div class="input-group">
 							<label for="name" class="name">Gender	</label>
@@ -223,12 +223,12 @@ function blockSpecialChar_emailid(e){
 					</div>	
 					<div class="input-group">	
 						<label for="name" class="name">D.O.B.	</label>
-						<input type="text" class="dob" name="dob" size="20" id="dob" class="form-control" required ><br>
+						<input type="text" class="dob" name="dateOfBirth" size="20" id="dob" class="form-control" required ><br>
 					</div>	
 					<div class="input-group">	
 						<label for="name" class="name">Marital Status </label>	
-						<input type="checkbox" name="mstatus" value="Single" id="single"  onclick="disable1()" >Single
-						<input type="checkbox" name="mstatus" value="Married" id="married"  onclick="disable2()">Married<br>
+						<input type="checkbox" name="maritalStatus" value="Single" id="single"  onclick="disable1()" >Single
+						<input type="checkbox" name="maritalStatus" value="Married" id="married"  onclick="disable2()">Married<br>
 					</div>
 				</div>
 			</div>
@@ -244,8 +244,8 @@ function blockSpecialChar_emailid(e){
 						<textarea id="text_area" name="address" rows="4" cols="22" id="address" class="form-control"  placeholder="Enter your Residential Address" required></textarea><br></td>
 				</div>
 				<div class="input-group">	
-					<label for="name" class="name">Marital Status</label>
-					<input type="text" name="pincode" size="20" id="pincode" maxlength="6" class="form-control"  placeholder="Pincode" onkeypress="return blockSpecialChar_number(event)"required></td>
+					<label for="name" class="name">Pincode</label>
+					<input type="text" name="pinCode" size="20" id="pincode" maxlength="6" class="form-control"  placeholder="Pincode" onkeypress="return blockSpecialChar_number(event)"required></td>
 				</div>
 				<div class="input-group">	
 					<label for="name" class="name">City</label>
@@ -277,13 +277,13 @@ function blockSpecialChar_emailid(e){
 				<div class="input-group">	
 				<label for="name" class="name">Contact Number</label>
 					<div class="col-xs-8">
-						<input type="text" name="cnumber" id="cnumber" size="20" class="form-control" onkeypress="return blockSpecialChar_number(event)" maxlength="10" required><br></td>
+						<input type="text" name="contactNo" id="cnumber" size="20" class="form-control" onkeypress="return blockSpecialChar_number(event)" maxlength="10" required><br></td>
 					</div>
 				</div>
 				
 				<div class="input-group">	
 					<label for="name" class="name">File Upload</label><br>
-						<input type="file" name="datafile" size="40">
+						<input type="file" name="filename" size="40">
 							<input type="submit" class="fileupload" value="Send" required>
 				</div>
 				<div class="input-group">	
@@ -328,7 +328,7 @@ function blockSpecialChar_emailid(e){
 	</div>
 	<table class="button">
 		<tr>
-			<td ><input type = "submit"  id="submit" value="Submit" class="submit_button" data-toogle="tooltip" data-placement="left" title="Click here to submit" /></td>
+			<td ><input type = "submit" name='submit' id="submit" value="Submit" class="submit_button" data-toogle="tooltip" data-placement="left" title="Click here to submit" /></td>
 				<td class="reset_btn"><input type = "reset" id="reset" value="Reset" class="reset_button" data-toogle="tooltip" data-placement="bottom" title="Click here..If you want to reset.!!"/></td>
 		</tr>
 	</table>
