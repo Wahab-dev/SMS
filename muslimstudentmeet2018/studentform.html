@@ -110,7 +110,7 @@ label {
 </style>
 </head>
 <body>
-	<form name="reg_form"  id="studentform" action="studentform.php" method="Post" >
+	<form name="reg_form"  id="studentform" action="registration.php" method="POST">
 		<div class="container">
 			<div class = "panel panel-default">
 				<div class = "panel-heading">
@@ -128,15 +128,19 @@ label {
 					</div>
 					<div class="input-group">
 						<label for="age" class="name">Age </label>
-						<input type="text" name="name" id="age" class="form-control" placeholder="Age" onkeypress="return blockSpecialage(event)" maxlength="2" required><br>	
+						<input type="text" name="age" id="age" class="form-control" placeholder="Age" onkeypress="return blockSpecialage(event)" maxlength="2" required><br>	
 					</div>					
 					<div class="input-group">	
 						<label for="emailid" class="name">Email ID</label>
+<<<<<<< HEAD:muslim student meet2018/studentmeet2018.html
 						<input type="text" name="emailid" id="email_id" size="20" class="form-control" placeholder="Email-ID" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/" title="Feild must contain '@'" maxlength="30" required><br>
+=======
+						<input type="text" name="email" id="email_id" size="20" class="form-control" placeholder="Email-ID" onkeypress="return blockSpecialChar_emailid(event)" title="Feild must contain '@'" maxlength="30" required><br>
+>>>>>>> Ashika:muslimstudentmeet2018/studentform.html
 					</div>
 					<div class="input-group">
 						<label for="college_name" class="name">College Name </label>
-						<input type="text" name="name" id="college_name" class="form-control" placeholder="College Name"  onkeypress="return blockSpecialChar(event)" required><br>	
+						<input type="text" name="college" id="college_name" class="form-control" placeholder="College Name"  onkeypress="return blockSpecialChar(event)" required><br>	
 					</div>
 					<div class="input-group">	
 						<label for="place" class="name">Place</label>	 
@@ -144,10 +148,10 @@ label {
 					</div>
 					<div class="input-group">
 						<label for="contactnumber" class="name">Contact Number </label>
-						<input type="text" name="contact_number" id="contactnumber" class="form-control" placeholder="Contact Number" onkeypress="return blockSpecialChar_number(event)" maxlength="10" required><br>	
+						<input type="text" name="contact" id="contactnumber" class="form-control" placeholder="Contact Number" onkeypress="return blockSpecialChar_number(event)" maxlength="10" required><br>	
 					</div>
 					<div class="button1">
-						<input type = "submit"  id="submit" value="Submit" class="submit_button" data-toogle="tooltip" data-placement="left" title="Click here to submit"  />
+						<button type = "submit"  id="submit" name="submit" value="Submit" class="submit_button" data-toogle="tooltip" data-placement="left" title="Click here to submit">Submit</button>
 						<!--<button type="button" class="btn btn-success" data-toogle="tooltip" data-placement="left" title="Click here to submit">Submit</button>-->
 					</div>
 					<div class="button2">

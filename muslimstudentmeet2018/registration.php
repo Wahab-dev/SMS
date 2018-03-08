@@ -1,15 +1,12 @@
 <!-- 
 	Author  : Ashika Jahir
-	Project :School Students Meet 2018
+	Project :Muslim Students Meet
+	
 
-	Module / Page  : Regsiter Page
-	Description	   : This Page gets the details from the user enter into db.
+	Module / Page  : Register Page
+	Description	   : This Page gets the user details and insert in to db and send a mail to the registered user.
 -->
-
-
-
-
-<?php
+<?php 
 
 
 /*
@@ -18,20 +15,7 @@
 *  Description 		: It creates an object every time a user register and do the page functionality
 *  
 */
-echo "HAi";
 
-if (!empty($_POST['submit']))
-			 {
-				$name = $_POST['name'];
-				$gender = $_POST['gender'];
-				$age = $_POST['age'];
-				$email = $_POST['email'];
-				$place = $_POST['place'];
-				$contact = $_POST['conatct'];
-				$college = $_POST['college'];
-
-			 }
-echo $name;
 
 class Register
 	{
@@ -47,6 +31,8 @@ class Register
 			
 		}
 
+		//This function registers the user and send them a mail.
+
 		public function register_user() 
 		{
 
@@ -57,7 +43,7 @@ class Register
 				$age = $_POST['age'];
 				$email = $_POST['email'];
 				$place = $_POST['place'];
-				$contact = $_POST['conatct'];
+				$contact = $_POST['contact'];
 				$college = $_POST['college'];
 
 			 }
@@ -70,8 +56,14 @@ class Register
 				//executes the insert query
 				$queryStr->execute(array('name' => $name,'gender' => $gender,'age' => $age, 'email' => $email,'place' => $place, 'contact' => $contact, 'college'=>$college));
 
+				$queryStr = $this->db->prepare("SELECT id FROM register_details WHERE name = :name");
+
+				$queryStr->execute(array('name' => $name));
+				$row = $queryStr->fetch(PDO::FETCH_ASSOC);
+				$id = $row['id'];
+
 				
-				echo "New User.....Successfully Registered";
+				echo "New User.....Successfully Registered with id...." .$id;
 				
 
 				
@@ -86,19 +78,15 @@ class Register
 		}
 	}
 
-	//$new_user = new Register();//Creates an object of class Register everytime a new user register.*/
-	//$new_user->register_user();
-
-			
-
-
-
-
-
-
-
-
+	$new_user = new Register();//Creates an object of class Register everytime a new user register.*/
+	$new_user->register_user();
 	
+	//header("Location:studentform.html");
 	
 
- ?>
+
+
+
+
+
+?>
