@@ -2,186 +2,317 @@
 	Company Name : nWizara Infotech
 	Date : 07-March-2018 
 	Description : Register page for Muslim Students Meet 2018 -->
-	
+
 <html>
 <head>
-<title> Muslim Students Meet 2018</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script>
+	<link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.css">
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+</head>
 <style>
-	#text_area{
-	resize:none;
+h2 {
+    font-size: 28px;
+    color: #cd7400fa;
+    font-family: Gothia;
+    font-weight: 500;
+    margin-top: -20px;
+
 }
-h2{
-	font-family:calibri;
+.toggle-handle{
+	width : 80px;
+	}
+.toggle-on.btn{
+	padding-right:40px;
+	}
+.toggle-off.btn {
+    padding-left: 40px;
+}
+.form-horizontal .control-label {
+	text-align : left;
+	margin-left : -8px;
+	font-size: 20px;
+    font-family: Calibri;
+	color : #fff;
+	font-weight:500;
+	width: 165px;
+	margin-top: -9px;
 }
 .panel-default>.panel-heading {
     color: #333;
-    background-color: #ecce7fcc;
-    border-color: #ddd;
-}
-.panel-default{
-	width:520px;
+    background-color: #ffffffd4;
+    border-color: #ddd0;
+    font-size: 25px;
 }
 .panel-heading {
-    padding: 5px 70px;
-	}
-.input-group .form-control{
-	width:285px;
+    padding: 22px 30px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;
 }
-.input-group{
-	padding-top: 25px;
+.panel-default {
+    border-color: #ddddddf2;
+   width: 520px;
+    margin-left: 405px;
 }
-.name {
-	color: #b78517;
-    margin-top: 5px;
-    margin-left: -425px;
-	}
-.gender{
-	color: #b78517;
-	margin-left:28px;
-	}
-.gender_role{
-	margin-left:80px;
-	}
+.panel {
+    margin-bottom: 20px;
+    background-color: #a09f9fa1;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 10px 23px rgba(0, 0, 0, 1);
+}
 .form-control{
-	margin-left: 170px;
-	}
-.panel{
-	margin-left: 350px;
-    margin-top: 30px;
+	width: 150%;
+	background-color: #ffffffab;
 }
-input[type=radio] {
-    margin: 5px 13px 12px;
-    /* padding-left: 50px; */
-    margin-left: 100px;
-    margin-top: 1px\9;
-    line-height: normal;
+.content:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0; bottom: 0;
+  z-index: -1;
+
+  display: block;
+  background-color: black;
+  background-image: url('conferenceimage.jpg');
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(4px);
 }
-.btn-success{
-	margin-left: 170px;
+.btn-default:active:hover{
+	background-color:#e6e6e6ad;
+	border-color : #adadad;
 }
-.button1{
-padding-top: 30px;
-    margin-top: 20px;
-    margin-left: 120px;
-}
-.button2{
-	padding-left: 24px;
-    padding-right: 20px;
-    margin-left: 260px;
-	margin-top: -45px;
-}
-.btn {
-	padding: 6px 15px;
-}
-label {
-    display: inline-block;
-    max-width: 100%;
-    margin-bottom: 5px;
-    font-weight: 600;
-    font-family: Gothia;
-    font-size: 17px;
-}
-.submit_button{
-	background-color:#4CAF50;
-	color:#fff;
-	text-align:center;
-	border:none;
-	font-size: 15px;
-    padding: 12px 25px;
-	display: inline-block;
-	text-decoration: none;
-	border-radius: 8px;
-}
-.reset_button{
-	background-color: #f44336;
-	color:#fff;
-	text-align:center;
-	border:none;
-	font-size: 15px;
-    padding: 12px 25px;
-	display: inline-block;
-	text-decoration: none;
-	border-radius: 8px;
-}
+.btn-warning:active:hover{
+	background-color:#d58512a6;
+	border-color : #adadad;
+	
+}	
 </style>
-</head>
 <body>
-	<form name="reg_form"  id="studentform" action="registration.php" method="POST">
-		<div class="container">
-			<div class = "panel panel-default">
-				<div class = "panel-heading">
-					<h2>Muslim Students Meet 2018</h2>
-				</div>
-				<div class = "panel-body">
-					<div class="input-group">
-						<label for="name" class="name">Name </label>
-						<input type="text" name="name" id="name" class="form-control" placeholder="Name" pattern="[a-zA-Z]" required><br>	
-					</div>
-					<div class="input-group">
-						<label for="name" class="gender">Gender	</label>
-						<input type="radio" name="gender" value="Male" class="gender_role" id="male" required>Male
-						<input type="radio" name="gender" value="Female" id="female">Female<br>
-					</div>
-					<div class="input-group">
-						<label for="age" class="name">Age </label>
-						<input type="text" name="age" id="age" class="form-control" placeholder="Age" pattern="[0-9]" title="Feild must contain numbers"  maxlength="2" required><br>	
-					</div>					
-					<div class="input-group">	
-						<label for="emailid" class="name">Email ID</label>
+<div class="content">
+<div class="panel panel-default">
+ <div class="panel-heading">Muslim Students Meet 2018</div>
+    <div class="panel-body">
+ 
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="page-header">
+                    <h2>Registration Form</h2>
+                </div>
 
-						<input type="text" name="emailid" id="email_id" size="20" class="form-control" placeholder="Email-ID" pattern="^[a-zA-Z0-9._]+@[a-zA-Z0-9]*" title="Feild must contain '@'" maxlength="30" required><br>
+                <form id="registrationForm" name="reg_form" action="registration.php" method="POST" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Name</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="name" placeholder="Your Name" />
+                        </div>
+                    </div>
+					
+					<div class="form-group">
+                        <label class="col-sm-3 control-label">Gender</label>
+                        <div class="col-sm-5">
+						<input type="checkbox" name="gender" checked data-toggle="toggle" data-on="Male" data-off="Female" data-onstyle="primary" data-offstyle="warning">
+                           <!-- <div class="radio">
+                                <label>
+                                    <input type="radio" name="gender" value="male" /> Male
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="gender" value="female" /> Female
+                                </label>
+                            </div>-->
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label class="col-sm-3 control-label">Age</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="age" placeholder="Age" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Email ID</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="emailid" placeholder="Email ID" />
+                        </div>
+                    </div>
+					
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">College Name</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="college" placeholder="College Name" />
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="place" placeholder="Address"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Contact Number</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="contact" placeholder="Contact Number" />
+                        </div>
+                    </div>
 
-					</div>
-					<div class="input-group">
-						<label for="college_name" class="name">College Name </label>
-						<input type="text" name="college" id="college_name" class="form-control" placeholder="College Name"  pattern="[[a-zA-Z]" required><br>	
-					</div>
-					<div class="input-group">	
-						<label for="place" class="name">Place</label>	 
-						<textarea id="text_area" name="place" rows="4" cols="22" id="address" class="form-control"  placeholder="Enter your Residential Address" required></textarea><br></td>
-					</div>
-					<div class="input-group">
-						<label for="contactnumber" class="name">Contact Number </label>
-						<input type="text" name="contact" id="contactnumber" class="form-control" placeholder="Contact Number" pattern="[0-9]" title="Field should contain only 10 numbers" maxlength="10" required><br>	
-					</div>
-					<div class="button1">
-						<button type = "submit"  id="submit" name="submit" value="Submit" class="submit_button" data-toogle="tooltip" data-placement="left" title="Click here to submit">Submit</button>
-						<!--<button type="button" class="btn btn-success" data-toogle="tooltip" data-placement="left" title="Click here to submit">Submit</button>-->
-					</div>
-					<div class="button2">
-						<!--<button type="button" class="btn btn-danger" data-toogle="tooltip" data-placement="top" title="Click here..If you want to reset.!!">Reset</button>-->
-						<input type = "reset" id="reset" value="Reset" class="reset_button" data-toogle="tooltip" data-placement="bottom" title="Click here..If you want to reset.!!"/>
-					</div>
-				</div>
+                    <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
+                            <button type="submit" name="submit" class="btn btn-success"data-toggle="modal" data-target="#modal-submit">Sign up</button>
+                        </div>
+                    </div></div></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<!--Modal-->
+<div class="modal fade" id="modal-submit" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Muslim Students Meet - 2018</h4>
+			</div>
+			<div class="modal-body">
+				<p> Dear xxx, Your Data has been Registered Successfully..!!<br> <br>Your ID :  </p>
+			</div>
+			<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal"> Ok</button>
 			</div>
 		</div>
-	</form>
+	</div>
+</div>
+
+
 <script>
-	$(document).ready(function(){
-	$('[data-toogle="tooltip"]').tooltip();
+$(document).ready(function() {
+    $('#registrationForm').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            name: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 50,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z ]*$/,
+                        message: 'The username can only consist of only alphabets'
+                    },
+                }
+            },
+            emailid: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required and cannot be empty'
+                    },
+                    emailAddress: {
+                        message: 'The email address is not a valid'
+                    }
+                }
+            },      
+            gender: {
+                validators: {
+                    notEmpty: {
+                        message: 'The gender is required'
+                    }
+                }
+            },
+			age : {
+				validators: {
+                    notEmpty: {
+                        message: 'Age is required'
+					},
+				stringLength :{
+					min:2,
+					max : 2,
+					message : 'Enter Valid Age'
+					},
+				 regexp: {
+                        regexp: /^\S[0-9]{0,3}$/,
+                        message: 'The username can only consist of only Numbers'
+                },
+				}
+			},
+			college : {
+                message: 'The College is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'College Name is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'College Name must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z]+$/,
+                        message: 'The College Name can only consist of only Alphabets'
+                    }
+                }
+			},
+			place : {
+				message: 'Entered Address is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'Address is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'Address must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[#.0-9a-zA-Z\s,-]+$/,
+                        message: 'Address can only consist of alphabetical and number'
+                    }
+                }
+			},
+			contact : {
+				message: 'Entered Contact Number is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'Contact Number is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 10,
+						max :10,
+                        message: 'Address must be only 10 digits'
+                    },
+                    regexp: {
+                        regexp: /^\+?[0-9-]+$/,
+                        message: 'Address can only consist of alphabetical and number'
+                    }
+                }
+			},
+		}		
+    });
 });
 </script>
-<!--<script>
-function blockSpecialChar(e){
-		var k;
-		document.all ? k=e.keycode : k=e.which;
-		return ((k>64 && k<91) || (k>96 && k<123) || k==8 ||k==32 || (k>=48 && k<=57));
-		}
-function blockSpecialChar_number(e){
-		var k;
-		document.all ? k=e.keycode : k=e.which;
-		return (k==8 ||k==32 || (k>=48 && k<=57));
-		}
-function blockSpecialChar_emailid(e){
-		var k;
-		document.all ? k=e.keycode : k=e.which;
-		return ((k>64 && k<91) || (k>96 && k=123)||k==8 ||k==32 ||k==64 ||k==190 ||(k>124 && k<219)  || (k>=48 && k<=57));
-		}
-	</script> -->
 </body>
 </html>
-	
