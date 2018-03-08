@@ -45,6 +45,12 @@ class Register
 				$place = $_POST['place'];
 				$contact = $_POST['contact'];
 				$college = $_POST['college'];
+				$sender = '';
+				$receiver = $email;
+				$subject = '';
+				$message = '';
+				$res = false;
+
 
 			 }
 
@@ -62,9 +68,24 @@ class Register
 				$row = $queryStr->fetch(PDO::FETCH_ASSOC);
 				$id = $row['id'];
 
-				
-				echo "New User.....Successfully Registered with id...." .$id;
-				
+
+				$sender = 'From : ashi.jahir@gmail.com';
+				$receiver = $email;
+				$subject = "Registered - Muslim Students meet 2018";
+				$message = "Dear ".$name. ",You have been Successfully registered in MUSLIM STUDENTS MEET 2018 with the id..." .$id ;
+
+				$res = mail($receiver,$subject,$message,$sender);
+
+				if($res)
+					{
+						echo $message;
+					}
+				else
+					{
+						echo "Mail not sent";
+					}
+
+				//echo "New User.....Successfully Registered with id...." .$id;
 
 				
 			} 
