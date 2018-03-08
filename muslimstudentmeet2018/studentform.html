@@ -119,7 +119,7 @@ label {
 				<div class = "panel-body">
 					<div class="input-group">
 						<label for="name" class="name">Name </label>
-						<input type="text" name="name" id="name" class="form-control" placeholder="Name" onkeypress="return blockSpecialChar(event)" required><br>	
+						<input type="text" name="name" id="name" class="form-control" placeholder="Name" pattern="[a-zA-Z]" required><br>	
 					</div>
 					<div class="input-group">
 						<label for="name" class="gender">Gender	</label>
@@ -128,19 +128,17 @@ label {
 					</div>
 					<div class="input-group">
 						<label for="age" class="name">Age </label>
-						<input type="text" name="age" id="age" class="form-control" placeholder="Age" onkeypress="return blockSpecialage(event)" maxlength="2" required><br>	
+						<input type="text" name="age" id="age" class="form-control" placeholder="Age" pattern="[0-9]" title="Feild must contain numbers"  maxlength="2" required><br>	
 					</div>					
 					<div class="input-group">	
 						<label for="emailid" class="name">Email ID</label>
-<<<<<<< HEAD:muslim student meet2018/studentmeet2018.html
-						<input type="text" name="emailid" id="email_id" size="20" class="form-control" placeholder="Email-ID" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/" title="Feild must contain '@'" maxlength="30" required><br>
-=======
-						<input type="text" name="email" id="email_id" size="20" class="form-control" placeholder="Email-ID" onkeypress="return blockSpecialChar_emailid(event)" title="Feild must contain '@'" maxlength="30" required><br>
->>>>>>> Ashika:muslimstudentmeet2018/studentform.html
+
+						<input type="text" name="emailid" id="email_id" size="20" class="form-control" placeholder="Email-ID" pattern="^[a-zA-Z0-9._]+@[a-zA-Z0-9]*" title="Feild must contain '@'" maxlength="30" required><br>
+
 					</div>
 					<div class="input-group">
 						<label for="college_name" class="name">College Name </label>
-						<input type="text" name="college" id="college_name" class="form-control" placeholder="College Name"  onkeypress="return blockSpecialChar(event)" required><br>	
+						<input type="text" name="college" id="college_name" class="form-control" placeholder="College Name"  pattern="[[a-zA-Z]" required><br>	
 					</div>
 					<div class="input-group">	
 						<label for="place" class="name">Place</label>	 
@@ -148,7 +146,7 @@ label {
 					</div>
 					<div class="input-group">
 						<label for="contactnumber" class="name">Contact Number </label>
-						<input type="text" name="contact" id="contactnumber" class="form-control" placeholder="Contact Number" onkeypress="return blockSpecialChar_number(event)" maxlength="10" required><br>	
+						<input type="text" name="contact" id="contactnumber" class="form-control" placeholder="Contact Number" pattern="[0-9]" title="Field should contain only 10 numbers" maxlength="10" required><br>	
 					</div>
 					<div class="button1">
 						<button type = "submit"  id="submit" name="submit" value="Submit" class="submit_button" data-toogle="tooltip" data-placement="left" title="Click here to submit">Submit</button>
@@ -167,7 +165,7 @@ label {
 	$('[data-toogle="tooltip"]').tooltip();
 });
 </script>
-<script>
+<!--<script>
 function blockSpecialChar(e){
 		var k;
 		document.all ? k=e.keycode : k=e.which;
@@ -183,7 +181,7 @@ function blockSpecialChar_emailid(e){
 		document.all ? k=e.keycode : k=e.which;
 		return ((k>64 && k<91) || (k>96 && k=123)||k==8 ||k==32 ||k==64 ||k==190 ||(k>124 && k<219)  || (k>=48 && k<=57));
 		}
-	</script>
+	</script> -->
 </body>
 </html>
 	
