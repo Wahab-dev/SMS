@@ -26,7 +26,7 @@ class Register
 		public function __construct() 
 		{	
 			//connecting to db - sms_wizara
-			$this->db = new PDO("mysql:host=localhost;dbname=sms_wizara","ashi", "ashikajahir");
+			$this->db = new PDO("mysql:host=localhost;dbname=muslim_students_meet","ashi", "ashikajahir");
 			$this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 			
 		}
