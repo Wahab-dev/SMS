@@ -38,7 +38,6 @@ class Register
 
 			
 				$name = $_POST['name'];
-				//$gender = $_POST['gender'];
 				$gender = "Female";
 				$age = $_POST['age'];
 				$email = $_POST['email'];
@@ -51,11 +50,10 @@ class Register
 					$gender = "Male";
 				}
 
-				$sender = '';
-				$receiver = $email;
+	
 				$subject = '';
 				$message = '';
-				$res = false;
+				
 
 
 			 
@@ -75,25 +73,52 @@ class Register
 				$id = $row['id'];
 
 
-				$sender = 'From : ashi.jahir@gmail.com';
-				$receiver = $email;
-				$subject = "Registered - Muslim Students meet 2018";
+				//Message to be sent in mail
+
 				$message = "Dear ".$name. ",You have been Successfully registered in MUSLIM STUDENTS MEET 2018 with the id..." .$id ;
 
-				$res = mail($receiver,$subject,$message,$sender);
+				
+				//Code to send email using send grid is given here
 
-				if($res)
-					{
-						$res = $message;
-					}
+				if (filter_var($email, FILTER_VALIDATE_EMAIL))
+				{
+					
+					//email send grid code starts here
+
+					require_once ('SendGrid-API/vendor/autoload.php');
+
+					/*Post Data*/
+
+					/*Content*/
+					$from = new SendGrid\Email("Admin-Wizara", "admin@muslimstudentsmeet.in");
+					$subject = "Registration Confirm - MUSLIM STUDENTS MEET - 2018";
+					$to = new SendGrid\Email($name, $email);
+					$content = new SendGrid\Content("text/html", $message);
+
+					/*Send the mail*/
+					$mail = new SendGrid\Mail($from, $subject, $to, $content);
+					$apiKey = ('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');
+					$sg = new \SendGrid($apiKey);
+
+					/*Response*/
+					$response = $sg->client->mail()->send()->post($mail);
+					//var_dump($response);
+
+					//ends here
+					echo $message;
+				}
+
 				else
 					{
-						$res = "Mail not sent";
-					}
+						echo "Enter valid email";
+
+					} 
+
+
 
 				//echo "New User.....Successfully Registered with id...." .$id;
 
-				print_r(json_encode($res));
+				//print_r(json_encode($res));
 
 				
 			} 
