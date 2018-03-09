@@ -36,23 +36,26 @@ class Register
 		public function register_user() 
 		{
 
-			if (!empty($_POST['submitbutton']))
-			 {
+			
 				$name = $_POST['name'];
-				$gender = $_POST['gender'];
+				$gender = "Female";
 				$age = $_POST['age'];
 				$email = $_POST['email'];
 				$place = $_POST['place'];
 				$contact = $_POST['contact'];
 				$college = $_POST['college'];
-				$sender = '';
-				$receiver = $email;
+
+				if(isset($_POST['gender']))
+				{
+					$gender = "Male";
+				}
+
+	
 				$subject = '';
 				$message = '';
-				$res = false;
 
 
-			 }
+			 
 
 			 try 
 			{
@@ -62,36 +65,74 @@ class Register
 				//executes the insert query
 				$queryStr->execute(array('name' => $name,'gender' => $gender,'age' => $age, 'email' => $email,'place' => $place, 'contact' => $contact, 'college'=>$college));
 
-				$queryStr = $this->db->prepare("SELECT id FROM register_details WHERE name = :name");
+				$queryStr = $this->db->prepare("SELECT id FROM register_details WHERE email = :email");
 
-				$queryStr->execute(array('name' => $name));
+				$queryStr->execute(array('email' => $email));
 				$row = $queryStr->fetch(PDO::FETCH_ASSOC);
 				$id = $row['id'];
 
 
-				$sender = 'From : ashi.jahir@gmail.com';
-				$receiver = $email;
-				$subject = "Registered - Muslim Students meet 2018";
-				$message = "Dear ".$name. ",You have been Successfully registered in MUSLIM STUDENTS MEET 2018 with the id..." .$id ;
+				//Message to be sent in mail
 
-				$res = mail($receiver,$subject,$message,$sender);
+				$message = "Dear ".$name. ",You have been Successfully registered in MUSLIM STUDENTS MEET 2018. Your id " .$id ;
 
-				if($res)
-					{
-						echo $message;
-					}
+				
+				//Code to send email using send grid is given here
+
+				if (filter_var($email, FILTER_VALIDATE_EMAIL))
+				{
+					
+					//email send grid code starts here
+
+					require_once ('SendGrid-API/vendor/autoload.php');
+
+					/*Post Data*/
+
+					/*Content*/
+					$from = new SendGrid\Email("Admin-Wizara", "admin@muslimstudentsmeet.in");
+					$subject = "Registration Confirm - MUSLIM STUDENTS MEET - 2018";
+					$to = new SendGrid\Email($name, $email);
+					$content = new SendGrid\Content("text/html", $message);
+
+					/*Send the mail*/
+					$mail = new SendGrid\Mail($from, $subject, $to, $content);
+					$apiKey = ('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');
+					$sg = new \SendGrid($apiKey);
+
+					/*Response*/
+					$response = $sg->client->mail()->send()->post($mail);
+					//var_dump($response);
+
+					//ends here
+					echo $message;
+				}
+
 				else
 					{
-						echo "Mail not sent";
-					}
+						echo "Enter valid email";
+
+					} 
+
+
 
 				//echo "New User.....Successfully Registered with id...." .$id;
+
+				//print_r(json_encode($res));
 
 				
 			} 
 			catch (PDOException $e) 
 			{
-				echo $e->getMessage();
+				$error_message = $e->getMessage();
+
+				if(strpos($error_message, "SQLSTATE[23000]") !== false)
+				{
+					echo "Email already regsitered... Please enter new email id";
+				}
+				else
+				{
+					echo $e->getMessage();
+				}
 			}
 
 
@@ -101,6 +142,7 @@ class Register
 
 	$new_user = new Register();//Creates an object of class Register everytime a new user register.*/
 	$new_user->register_user();
+
 	
 	//header("Location:studentform.html");
 	
