@@ -100,15 +100,16 @@
                     <div class="form-group">
                         <div class="col-sm-9 col-sm-offset-3">
                             <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
-                            <button type="submit" name="submitbutton" id="submitbutton" class="btn1 btn-success">Sign up</button>
+                            <button type="submit" name="submitbutton" id="submitbutton" data-toggle="modal" data-target="#modal-submit" class="btn1 btn-success">Sign up</button>
                         </div>
                     </div></div></div>
                 </form>
             </div>
         </div>
     </div>
+<a href="javascript:void(0);" data-href="registration.php?id=1" class="openPopup">MSM - 2018</a>
 
-<!--Modal
+<!--Modal -->
 <div class="modal fade" id="modal-submit" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -117,15 +118,23 @@
 					<h4 class="modal-title">Muslim Students Meet - 2018</h4>
 			</div>
 			<div class="modal-body">
-				<p> Dear xxx, Your Data has been Registered Successfully..!!<br> <br>Your ID :  </p>
-			</div>
+				</div>
 			<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal"> Ok</button>
 			</div>
 		</div>
 	</div>
-</div> -->
-
+</div> 
+<script>
+$(document).ready(function(){
+    $('.openPopup').on('click',function(){
+        var dataURL = $(this).attr('data-href');
+        $('.modal-body').load(dataURL,function(){
+            $('#modal-submit').modal({show:true});
+        });
+    }); 
+});
+</script>
 
 <script>
 $(document).ready(function() {
