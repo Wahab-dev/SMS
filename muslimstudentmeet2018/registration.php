@@ -36,7 +36,7 @@ class Register
 		public function register_user() 
 		{
 
-			if (!empty($_POST['submit']))
+			if (!empty($_POST['submitbutton']))
 			 {
 				$name = $_POST['name'];
 				$gender = $_POST['gender'];

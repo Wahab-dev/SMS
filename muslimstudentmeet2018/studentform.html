@@ -13,119 +13,40 @@
 	<link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.css">
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-</head>
-<style>
-h2 {
-    font-size: 28px;
-    color: #cd7400fa;
-    font-family: Gothia;
-    font-weight: 500;
-    margin-top: -20px;
-
-}
-.toggle-handle{
-	width : 80px;
-	}
-.toggle-on.btn{
-	padding-right:40px;
-	}
-.toggle-off.btn {
-    padding-left: 40px;
-}
-.form-horizontal .control-label {
-	text-align : left;
-	margin-left : -8px;
-	font-size: 20px;
-    font-family: Calibri;
-	color : #fff;
-	font-weight:500;
-	width: 165px;
-	margin-top: -9px;
-}
-.panel-default>.panel-heading {
-    color: #333;
-    background-color: #ffffffd4;
-    border-color: #ddd0;
-    font-size: 25px;
-}
-.panel-heading {
-    padding: 22px 30px;
-    border-bottom: 1px solid transparent;
-    border-top-left-radius: 17px;
-    border-top-right-radius: 17px;
-}
-.panel-default {
-    border-color: #ddddddf2;
-   width: 520px;
-    margin-left: 405px;
-}
-.panel {
-    margin-bottom: 20px;
-    background-color: #a09f9fa1;
-    border: 1px solid transparent;
-    border-radius: 20px;
-    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-    box-shadow: 0 10px 23px rgba(0, 0, 0, 1);
-}
-.form-control{
-	width: 150%;
-	background-color: #ffffffab;
-}
-.content:before {
-  content: "";
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0; bottom: 0;
-  z-index: -1;
-
-  display: block;
-  background-color: black;
-  background-image: url('conferenceimage.jpg');
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-
-  -webkit-filter: blur(2px);
-  -moz-filter: blur(2px);
-  -o-filter: blur(2px);
-  -ms-filter: blur(2px);
-  filter: blur(4px);
-}
-.btn-default:active:hover{
-	background-color:#e6e6e6ad;
-	border-color : #adadad;
-}
-.btn-warning:active:hover{
-	background-color:#d58512a6;
-	border-color : #adadad;
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-}	
-</style>
+	<link rel="stylesheet" href="stylesheet.css"/>
+</head>
 <body>
 <div class="content">
+<img src="msmlogo.png" class="image"/>
 <div class="panel panel-default">
- <div class="panel-heading">Muslim Students Meet 2018</div>
+ <!--<div class="panel-heading">Muslim Students Meet 2018</div>-->
     <div class="panel-body">
- 
+	
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="page-header">
                     <h2>Registration Form</h2>
                 </div>
 
-                <form id="registrationForm" name="reg_form" action="registration.php" method="POST" class="form-horizontal">
+               <!-- <form id="registrationForm" name="reg_form" action="registration.php" method="POST" class="form-horizontal">-->
+                    
+					 <form id="registrationForm" name="reg_form" method="POST" action="registration.php"  class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Name</label>
+					<span class="glyphicon glyphicon-user"></span>
+                       <!-- <label class="col-sm-3 control-label">Name</label>-->
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="name" placeholder="Your Name" />
+                            <input type="text" class="form-control"  id="name" name="name" placeholder="Your Name" />
                         </div>
                     </div>
 					
 					<div class="form-group">
-                        <label class="col-sm-3 control-label">Gender</label>
-                        <div class="col-sm-5">
-						<input type="checkbox" name="gender" checked data-toggle="toggle" data-on="Male" data-off="Female" data-onstyle="primary" data-offstyle="warning">
+					<div class="gender">
+                        <!--<label class="col-sm-3 control-label">Gender</label>-->
+                        <span class="fa fa-venus-mars"></span>
+						<!--<img src="gender.png" class="gendericon"/>-->
+						<input type="checkbox" name="gender" class="gendertoggle" id="gender" checked data-toggle="toggle" data-on="Male" data-off="Female" data-onstyle="primary" data-offstyle="warning" style="width: 111.688px;height: 34px;margin-left: 60px;margin-top:-25px;">
                            <!-- <div class="radio">
                                 <label>
                                     <input type="radio" name="gender" value="male" /> Male
@@ -135,45 +56,51 @@ h2 {
                                 <label>
                                     <input type="radio" name="gender" value="female" /> Female
                                 </label>
-                            </div>-->
-                        </div>
+                           </div>-->
+						</div> 		
+                       
                     </div>
 					<div class="form-group">
-                        <label class="col-sm-3 control-label">Age</label>
+					<span class="glyphicon glyphicon-time"></span>
+                        <!--<label class="col-sm-3 control-label">Age</label>-->
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="age" placeholder="Age" />
+                            <input type="text" class="form-control" id="age" name="age" placeholder="Age" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Email ID</label>
+					<span class="fa fa-user-o"></span>
+					<!-- <label class="col-sm-3 control-label">Email ID</label>-->
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="emailid" placeholder="Email ID" />
+                            <input type="text" class="form-control" id="emailid" name="email" placeholder="Email ID" />
                         </div>
                     </div>
 					
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">College Name</label>
+					<span class="glyphicon glyphicon-education"></span>
+                        <!--<label class="col-sm-3 control-label">College Name</label>-->
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="college" placeholder="College Name" />
+                            <input type="text" id="college" class="form-control" name="college" placeholder="College Name" />
                         </div>
                     </div>
 					<div class="form-group">
-                        <label class="col-sm-3 control-label">Address</label>
+					<span class="glyphicon glyphicon-home"></span>
+                       <!-- <label class="col-sm-3 control-label">Address</label>-->
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="place" placeholder="Address"/>
+                            <input type="text" class="form-control" id="place" name="place" placeholder="Address"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Contact Number</label>
+					<span class="glyphicon glyphicon-phone"></span>
+                       <!-- <label class="col-sm-3 control-label">Contact Number</label>-->
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="contact" placeholder="Contact Number" />
+                            <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact Number" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-9 col-sm-offset-3">
                             <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
-                            <button type="submit" name="submit" class="btn btn-success"data-toggle="modal" data-target="#modal-submit">Sign up</button>
+                            <button type="submit" name="submitbutton" id="submitbutton" class="btn1 btn-success">Sign up</button>
                         </div>
                     </div></div></div>
                 </form>
@@ -181,7 +108,7 @@ h2 {
         </div>
     </div>
 
-<!--Modal-->
+<!--Modal
 <div class="modal fade" id="modal-submit" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -197,7 +124,7 @@ h2 {
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 
 <script>
@@ -312,6 +239,30 @@ $(document).ready(function() {
 			},
 		}		
     });
+});
+</script>
+
+<!--<script>
+	$(document).ready(function() {
+		$("#submitbutton").click (function()  {
+			var name = $("#name").val();
+			var age = $("#age").val();
+			var email = $("#emailid").val();
+			var college = $("#college").val();
+			var place = $("#place").val();
+			var contact = $("#contact").val();
+			alert("  Name : " + name + " \n  Age : " + age + " \n Email : " + email + " \n College : " + college + " \n Contact : " + contact + " \n Address : " + place + " \n\n Form Submitted Successfully......");
+		});
+	});
+</script>-->
+<script>
+	$(document).ready(function() {
+$("#gender").change(function(){
+    if($(this).prop("checked") == true){
+       //gender = "Male";
+    }else{
+       //gender= "Female";
+    }
 });
 </script>
 </body>

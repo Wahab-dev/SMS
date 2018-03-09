@@ -1,8 +1,7 @@
 <?php 
 
 
-if (!empty($_POST['submit']))
-			 {
+			 
 				$name = $_POST['name'];
 				$gender = $_POST['gender'];
 				$age = $_POST['age'];
@@ -10,7 +9,7 @@ if (!empty($_POST['submit']))
 				$place = $_POST['place'];
 				$contact = $_POST['contact'];
 				$college = $_POST['college'];
-			}
+			
 
 
 			echo $name;
