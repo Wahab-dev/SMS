@@ -27,8 +27,8 @@ class Register
 			
 			try 
 			{
-				//connecting to db - sms_wizara
-				$this->db = new PDO("mysql:host=localhost;dbname=muslim_students_meet","ashi", "ashikajahir");
+				//connecting to db - muslim_students_meet
+				$this->db = new PDO("mysql:host=localhost;dbname=muslim_students_meet","user", "user");
 				$this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 				$this->register_user();
 			} 
