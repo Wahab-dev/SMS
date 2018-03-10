@@ -21,6 +21,11 @@
 			echo $college;
 
 
+			//echo json_encode($name);
+
+			//echo json_encode(array("result"=>$name));
+
+
 
 
 
