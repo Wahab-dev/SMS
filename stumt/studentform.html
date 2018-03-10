@@ -33,7 +33,7 @@
 
                <!-- <form id="registrationForm" name="reg_form" action="registration.php" method="POST" class="form-horizontal">-->
                     
-					 <form id="registrationForm" name="reg_form" method="POST"  action="registration.php"  class="form-horizontal">
+					 <form id="registrationForm" name="reg_form" method="POST"  action="check.php"  class="form-horizontal">
                     <div class="form-group">
 					<span class="glyphicon glyphicon-user"></span>
                        <!-- <label class="col-sm-3 control-label">Name</label>-->
@@ -101,14 +101,14 @@
                     <div class="form-group">
                         <div class="col-sm-9 col-sm-offset-3">
                             <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
-                            <button type="submit" name="submitbutton" id="submitbutton" data-toggle="modal" data-target="#view-modal" class="btn1 btn-success">Sign up</button>
+                            <button type="submit" name="submitbutton" id="submitbutton" onclick="foo()" data-toggle="modal" data-target="#view-modal" class="btn1 btn-success">Sign up</button>
                         </div>
                     </div></div></div>
                 </form>
             </div>
         </div>
     </div>
-<!--Modal-->
+<!--Modal
 <div id="view-modal"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog"> 
      <div class="modal-content">  
@@ -123,11 +123,11 @@
         <div class="modal-body">                     
            <div id="modal-loader" style="display: none; text-align: center;">
            <!-- ajax loader -->
-           <img src="loader.gif">
+          <!-- <img src="loader.gif">
            </div>
                             
            <!-- mysql data will be load here -->                          
-           <div id="dynamic-content"></div>
+           <!--<div id="dynamic-content"></div>
         </div> 
                         
         <div class="modal-footer"> 
@@ -136,7 +136,7 @@
                         
     </div> 
   </div>
-</div>
+</div>-->
 
 
 <!--Modal 
@@ -172,7 +172,7 @@ $(document).ready(function(){
     });
 });
 </script>-->
-<script>
+<!--<script>
 $(document).ready(function(){
 
     $(document).on('click', '#registrationForm', function(e){
@@ -203,7 +203,22 @@ $(document).ready(function(){
 
     });
 });
+</script>-->
+
+
+<script>
+function foo(){
+	$.ajax({
+		url:"check.php",
+		type :"POST",
+		success : function(result){
+			alert(result);
+		}
+	});
+}
 </script>
+		
+	
 <script>
 $(document).ready(function() {
     $('#registrationForm').bootstrapValidator({
@@ -220,8 +235,8 @@ $(document).ready(function() {
                         message: 'The username is required and cannot be empty'
                     },
                     stringLength: {
-                        min: 6,
-                        max: 50,
+                        min: 3,
+                        max: 30,
                         message: 'The username must be more than 6 and less than 30 characters long'
                     },
                     regexp: {
@@ -275,7 +290,7 @@ $(document).ready(function() {
                         message: 'College Name must be more than 6 and less than 30 characters long'
                     },
                     regexp: {
-                        regexp: /^[a-zA-Z]+$/,
+                        regexp: /^[a-zA-Z ]+$/,
                         message: 'The College Name can only consist of only Alphabets'
                     }
                 }
@@ -292,7 +307,7 @@ $(document).ready(function() {
                         message: 'Address must be more than 6 and less than 30 characters long'
                     },
                     regexp: {
-                        regexp: /^[#.0-9a-zA-Z\s,-]+$/,
+                        regexp: /^[#.0-9a-zA-Z \s,-]+$/,
                         message: 'Address can only consist of alphabetical and number'
                     }
                 }

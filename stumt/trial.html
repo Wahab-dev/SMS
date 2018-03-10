@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="stylesheet.css"/>
+	
 </head>
 <body>
 <div class="content">
@@ -32,7 +33,7 @@
 
                <!-- <form id="registrationForm" name="reg_form" action="registration.php" method="POST" class="form-horizontal">-->
                     
-					 <form id="registrationForm" name="reg_form" method="POST" action="registration.php"  class="form-horizontal">
+					 <form id="registrationForm" name="reg_form" method="POST" class="form-horizontal">
                     <div class="form-group">
 					<span class="glyphicon glyphicon-user"></span>
                        <!-- <label class="col-sm-3 control-label">Name</label>-->
@@ -46,17 +47,17 @@
                         <!--<label class="col-sm-3 control-label">Gender</label>-->
                         <span class="fa fa-venus-mars"></span>
 						<!--<img src="gender.png" class="gendericon"/>-->
-						<input type="checkbox" name="gender" class="gendertoggle" id="gender" checked data-toggle="toggle" data-on="Male" data-off="Female" data-onstyle="primary" data-offstyle="warning" style="width: 111.688px;height: 34px;margin-left: 60px;margin-top:-25px;">
-                           <!-- <div class="radio">
+					<!--	<input type="checkbox" name="gender" class="gendertoggle" id="gender" checked data-toggle="toggle" data-on="Male" data-off="Female" data-onstyle="primary" data-offstyle="warning" style="width: 111.688px;height: 34px;margin-left: 60px;margin-top:-25px;">-->
+                           <div class="radio">
                                 <label>
-                                    <input type="radio" name="gender" value="male" /> Male
+                                    <input type="radio" id="gendermale" name="gender" value="male"  /> Male
                                 </label>
-                            </div>
-                            <div class="radio">
+                            
+                          
                                 <label>
-                                    <input type="radio" name="gender" value="female" /> Female
+                                    <input type="radio" id="genderfemale" name="gender" value="female" /> Female
                                 </label>
-                           </div>-->
+                           </div>
 						</div> 		
                        
                     </div>
@@ -100,41 +101,14 @@
                     <div class="form-group">
                         <div class="col-sm-9 col-sm-offset-3">
                             <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
-                            <button type="submit" name="submitbutton" id="submitbutton" data-toggle="modal" data-target="#modal-submit" class="btn1 btn-success">Sign up</button>
+                            <button type="submit" name="submitbutton" id="submit" data-toggle="modal" data-target="#view-modal" class="btn1 btn-success">Sign up</button>
                         </div>
                     </div></div></div>
                 </form>
             </div>
         </div>
     </div>
-<!--<a href="javascript:void(0);" data-href="registration.php?id=1" class="openPopup">MSM - 2018</a>
 
-<!--Modal 
-<div class="modal fade" id="modal-submit" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Muslim Students Meet - 2018</h4>
-			</div>
-			<div class="modal-body">
-				</div>
-			<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal"> Ok</button>
-			</div>
-		</div>
-	</div>
-</div> 
-<script>
-$(document).ready(function(){
-    $('.openPopup').on('click',function(){
-        var dataURL = $(this).attr('data-href');
-        $('.modal-body').load(dataURL,function(){
-            $('#modal-submit').modal({show:true});
-        });
-    }); 
-});
-</script>-->
 
 <script>
 $(document).ready(function() {
@@ -162,7 +136,7 @@ $(document).ready(function() {
                     },
                 }
             },
-            emailid: {
+            email: {
                 validators: {
                     notEmpty: {
                         message: 'The email address is required and cannot be empty'
@@ -248,34 +222,16 @@ $(document).ready(function() {
 			},
 		}		
     });
-});
-</script>
 
-<!--<script>
-	$(document).ready(function() {
-		$("#submitbutton").click (function()  {
-			var name = $("#name").val();
-			var age = $("#age").val();
-			var email = $("#emailid").val();
-			var college = $("#college").val();
-			var place = $("#place").val();
-			var contact = $("#contact").val();
-			alert("  Name : " + name + " \n  Age : " + age + " \n Email : " + email + " \n College : " + college + " \n Contact : " + contact + " \n Address : " + place + " \n\n Form Submitted Successfully......");
-		});
-	});
-</script>-->
-<script>
-	$(document).ready(function() {
-$("#gender").change(function(){
+   $("#gender").change(function(){
     if($(this).prop("checked") == true){
        //gender = "Male";
     }else{
        //gender= "Female";
     }
-});
-</script>
-<script>
- $("#submit").click (function()  {
+  }); 
+
+    $("#submit").click (function()  {
 
       var name = $("#name").val();
       var age = $("#age").val();
@@ -311,5 +267,8 @@ $("#gender").change(function(){
 
 });
 </script>
+
+
+
 </body>
 </html>

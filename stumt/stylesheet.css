@@ -12,9 +12,11 @@ h2 {
 }
 .help-block {
     display: block;
-    margin-top: -27px;
+    margin-top: -65px;
     margin-bottom: 10px;
-    width: 190%;
+    width: 135%;
+    margin-left: 255px;
+
 	}
 .toggle-handle{
 	width : 80px;
@@ -81,7 +83,7 @@ width: 260px;
 
   display: block;
   background-color: black;
-  background-image: url('conferenceimage.jpg');
+  background-image: url('image.jpg');
   width: 100%;
   height: 100%;
   background-size: cover;
