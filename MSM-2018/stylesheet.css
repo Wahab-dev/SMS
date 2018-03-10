@@ -6,6 +6,9 @@ h2 {
     margin-top: -20px;
 
 }
+::-webkit-input-placeholder { /* Chrome */
+  color: #fff;
+}
 .form-horizontal .has-feedback .form-control-feedback {
     right: -335px;
     top: -25px;
