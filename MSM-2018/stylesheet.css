@@ -12,9 +12,11 @@ h2 {
 }
 .help-block {
     display: block;
-    margin-top: -27px;
+    margin-top: -65px;
     margin-bottom: 10px;
-    width: 190%;
+    width: 135%;
+    margin-left: 255px;
+
 	}
 .toggle-handle{
 	width : 80px;
@@ -25,6 +27,29 @@ h2 {
 .toggle-off.btn {
     padding-left: 45px;
 }
+.toggle.btn {
+    min-width: 59px;
+    min-height: 34px;
+    margin-left: 15px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #fbf8f8;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
 .image{
 width: 260px;
     height: 230px;
@@ -32,7 +57,7 @@ width: 260px;
 }
 .form-horizontal .control-label {
 	text-align : left;
-	margin-left : -8px;
+	margin-left: -52px;
 	font-size: 20px;
     font-family: Calibri;
 	color : #fff;
@@ -69,7 +94,10 @@ width: 260px;
 .form-control{
 	width: 220%;
 	padding:6px 40px;
-	background-color: #ffffffab;
+	background-color: #ffffff17;
+}
+.form-control placeholder{
+	color:#fff;
 }
 .content:before {
   content: "";
@@ -81,7 +109,7 @@ width: 260px;
 
   display: block;
   background-color: black;
-  background-image: url('conferenceimage.jpg');
+  background-image: url('image.jpg');
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -91,6 +119,11 @@ width: 260px;
   -o-filter: blur(2px);
   -ms-filter: blur(2px);
   filter: blur(4px);
+}
+.page-header {
+    padding-bottom: 9px;
+    margin: 42px -56px 23px;
+    border-bottom: 1px solid #eeeeee2b;
 }
 .btn-default:active:hover{
 	background-color:#e6e6e6ad;

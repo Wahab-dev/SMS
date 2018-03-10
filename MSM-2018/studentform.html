@@ -34,17 +34,17 @@
                     
 					 <form id="registrationForm" name="reg_form" method="POST"  class="form-horizontal">
                     <div class="form-group">
-					<span class="glyphicon glyphicon-user"></span>
-                       <!-- <label class="col-sm-3 control-label">Name</label>-->
+					<!--<span class="glyphicon glyphicon-user"></span>-->
+                       <label class="col-sm-3 control-label">Name</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control"  id="name" name="name" placeholder="Your Name" />
                         </div>
                     </div>
 					
 					<div class="form-group">
-					<div class="gender">
-                        <!--<label class="col-sm-3 control-label">Gender</label>-->
-                        <span class="fa fa-venus-mars"></span>
+					<!--<div class="gender">-->
+                        <label class="col-sm-3 control-label">Gender</label>
+                        <!--<span class="fa fa-venus-mars"></span>-->
 						<!--<img src="gender.png" class="gendericon"/>-->
 						<input type="checkbox" name="gender" class="gendertoggle" id="gender" checked data-toggle="toggle" data-on="Male" data-off="Female" data-onstyle="primary" data-offstyle="warning" style="width: 111.688px;height: 34px;margin-left: 60px;margin-top:-25px;">
                            <!-- <div class="radio">
@@ -57,41 +57,41 @@
                                     <input type="radio" name="gender" id="gender" value="female" /> Female
                                 </label>
                            </div>-->
-						</div> 		
+						<!--</div> 		-->
                        
                     </div>
 					<div class="form-group">
-					<span class="glyphicon glyphicon-time"></span>
-                        <!--<label class="col-sm-3 control-label">Age</label>-->
+					<!--<span class="glyphicon glyphicon-time"></span>-->
+                        <label class="col-sm-3 control-label">Age</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="age" name="age" placeholder="Age" />
                         </div>
                     </div>
                     <div class="form-group">
-					<span class="fa fa-user-o"></span>
-					<!-- <label class="col-sm-3 control-label">Email ID</label>-->
+					<!--<span class="fa fa-user-o"></span>-->
+					<label class="col-sm-3 control-label">Email ID</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="emailid" name="email" placeholder="Email ID" />
                         </div>
                     </div>
 					
                     <div class="form-group">
-					<span class="glyphicon glyphicon-education"></span>
-                        <!--<label class="col-sm-3 control-label">College Name</label>-->
+					 <!--<span class="glyphicon glyphicon-education"></span>-->
+                       <label class="col-sm-3 control-label">College Name</label>
                         <div class="col-sm-5">
                             <input type="text" id="college" class="form-control" name="college" placeholder="College Name" />
                         </div>
                     </div>
 					<div class="form-group">
-					<span class="glyphicon glyphicon-home"></span>
-                       <!-- <label class="col-sm-3 control-label">Address</label>-->
+					<!--<span class="glyphicon glyphicon-home"></span>-->
+                       <label class="col-sm-3 control-label">Address</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="place" name="place" placeholder="Address"/>
                         </div>
                     </div>
                     <div class="form-group">
-					<span class="glyphicon glyphicon-phone"></span>
-                       <!-- <label class="col-sm-3 control-label">Contact Number</label>-->
+					<!--<span class="glyphicon glyphicon-phone"></span>-->
+                       <label class="col-sm-3 control-label">Contact Number</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact Number" />
                         </div>
@@ -136,7 +136,7 @@ $(document).ready(function(){
 });
 <<<<<<< HEAD
 </script>-->
-=======
+
 </script>
 <script >///submit function starts
 $(document).ready(function() {
@@ -180,7 +180,7 @@ $(document).ready(function() {
 
 });
 </script>
->>>>>>> 2264c741fd64c368515b071e72ec6d4e2b2d9e01
+
 
 <script>
 $(document).ready(function() {
@@ -198,7 +198,7 @@ $(document).ready(function() {
                         message: 'The username is required and cannot be empty'
                     },
                     stringLength: {
-                        min: 6,
+                        min: 3,
                         max: 50,
                         message: 'The username must be more than 6 and less than 30 characters long'
                     },
@@ -253,7 +253,7 @@ $(document).ready(function() {
                         message: 'College Name must be more than 6 and less than 30 characters long'
                     },
                     regexp: {
-                        regexp: /^[a-zA-Z]+$/,
+                        regexp: /^[a-zA-Z ]+$/,
                         message: 'The College Name can only consist of only Alphabets'
                     }
                 }
@@ -270,7 +270,7 @@ $(document).ready(function() {
                         message: 'Address must be more than 6 and less than 30 characters long'
                     },
                     regexp: {
-                        regexp: /^[#.0-9a-zA-Z\s,-]+$/,
+                        regexp: /^[#.0-9a-zA-Z \s,-]+$/,
                         message: 'Address can only consist of alphabetical and number'
                     }
                 }
