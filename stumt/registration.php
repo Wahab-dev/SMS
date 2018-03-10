@@ -1,15 +1,14 @@
-<!-- 
-	Author  : Ashika Jahir
-	Project :Muslim Students Meet
-	
 
-	Module / Page  : Register Page
-	Description	   : This Page gets the user details and insert in to db and send a mail to the registered user.
--->
 <?php 
-
-
 /*
+*	Author  : Ashika Jahir
+*	Project :Muslim Students Meet
+*	
+*
+*	Module / Page  : Register Page
+*	Description	   : This Page gets the user details and insert in to db and send a mail to the registered user.
+*
+*
 *
 *  Class    		: Register (Base Class)
 *  Description 		: It creates an object every time a user register and do the page functionality
@@ -25,9 +24,29 @@ class Register
 
 		public function __construct() 
 		{	
-			//connecting to db - sms_wizara
-			$this->db = new PDO("mysql:host=localhost;dbname=muslim_students_meet","ashi", "ashikajahir");
-			$this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+			
+			try 
+			{
+				//connecting to db - sms_wizara
+				$this->db = new PDO("mysql:host=localhost;dbname=muslim_students_meet","ashi", "ashikajahir");
+				$this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+				$this->register_user();
+			} 
+			catch (Exception $e) 
+			{
+				$error_message = $e->getMessage();
+
+				if (strpos($error_message, "SQLSTATE[HY000]") !== false) 
+				{
+					echo "Warning: Databse Access Denied.Please provide correct credentials";
+				}
+				else
+				{
+					echo $e->getMessage();
+				}
+			}
+
+			
 			
 		}
 
@@ -113,12 +132,6 @@ class Register
 
 					} 
 
-
-
-				//echo "New User.....Successfully Registered with id...." .$id;
-
-				//print_r(json_encode($res));
-
 				
 			} 
 			catch (PDOException $e) 
@@ -141,10 +154,10 @@ class Register
 	}
 
 	$new_user = new Register();//Creates an object of class Register everytime a new user register.*/
-	$new_user->register_user();
+	//$new_user->register_user();//either call here are call in constructor
 
 	
-	//header("Location:studentform.html");
+	
 	
 
 
