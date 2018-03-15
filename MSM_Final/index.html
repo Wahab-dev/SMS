@@ -223,7 +223,6 @@ btn-warning {
 $(document).ready(function() {
 $('#success').hide();
 			$("#submitbutton").click (function()  {
-			  $('#success').show();
 				var name = $("#name").val();
 				  var age = $("#age").val();
 				  var email = $("#emailid").val();
@@ -239,17 +238,22 @@ $('#success').hide();
 				//ajax starts
 
 			  $.ajax({
-				  url: 'registration.php',
+				  url: 'register_validate.php',
 				  type: 'POST',
 				  data: {name: name, gender:gender, age:age, email: email,college:college, place:place,contact:contact,whatsapp_number:whatsapp_number},
 				  success : function(response){
 						
-						if(alert(response))
+						if(response)
 						{
-							
+							 
+							  $('#success').show();
+							  alert("hai");
 						}
-						else   
-						 window.location.reload();         
+						else
+						{
+						 	window.location.reload(); 
+						}  
+						         
 				  }
 
 				});
@@ -260,7 +264,7 @@ $('#success').hide();
 	
 	<script>
 	$(document).ready(function() {
-	//$("#success_messge").hide();
+//success_messge").hide();
 		$("#register_nav").click(function() {
 			$('html, body').animate({
 				scrollTop: $("#register_block").offset().top

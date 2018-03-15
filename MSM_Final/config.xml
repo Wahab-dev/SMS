@@ -1,0 +1,46 @@
+
+<!--
+*	Author  : Ashika Jahir
+*	Project : Muslim Students Meet
+*	
+*
+*	Module / Page  : configuration file for logger
+*	Description	   : This Page configures the logger file.
+*
+*  
+*/-->
+
+<configuration xmlns="http://logging.apache.org/log4php/">
+
+<!-- Common appender-->
+<appender name="myConsoleAppender" class="LoggerAppenderConsole" />
+
+	<!-- Appender for class Database of dn_connect.php and Register of registration.php -->
+	<appender name="registerAppender" class="LoggerAppenderFile">
+	    <layout class="LoggerLayoutPattern">
+	         <param name="conversionPattern" value="[%logger] %message%newline" />
+	   	</layout>
+	        <param name="file" value="logs/register.log" />
+	</appender>
+
+	<!-- Logger for database-->
+		<logger name="Database"> <!-- It denotes the class name, for which the logger is created--> 
+	        <appender_ref ref="registerAppender" />
+	    </logger>
+
+	    <!-- Logger for Register-->
+
+	    <logger name="Register"> <!-- It denotes the class name, for which the logger is created--> 
+	        <appender_ref ref="registerAppender" />
+	    </logger>
+
+	<!-- Root Logger-->
+	
+	<root>
+        <level value="INFO" />
+        <appender_ref ref="myConsoleAppender" />
+    </root>
+
+
+
+</configuration>

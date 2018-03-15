@@ -10,41 +10,67 @@
 *
 *
 *
-*  Class    		: Register (Base Class)
+*  Class    		: Register (Extended Class)
 *  Description 		: It creates an object every time a user register and do the page functionality
 *  
 */
 
+	//INCLUDE FILES
 
-class Register
+	//Including logger files and configuring it
+
+	include('log4php/Logger.php');
+	Logger::configure('config.xml');
+
+	//include database connection
+
+	include('db_connect.php');
+
+
+class Register EXTENDS Database
+	
+
 	{
-		public $db = '';
 
-		//Constructor that performs db connectivity 
+		public $db = '';//for accessing PDO object
+		private $log; //for accessing logger
 
-		public function __construct() 
+		public $name;
+		public $gender;
+		public $age;
+		public $email;
+		public $place;
+		public $contact;
+		public $college;
+		public $whatsappno;
+
+		
+
+		public function __construct($name,$gender,$age,$email,$place,$contact,$college,$whatsappno) 
 		{	
 			
-			try 
-			{
-				//connecting to db - sms_wizara
-				$this->db = new PDO("mysql:host=localhost;dbname=muslim_students_meet","user", "user");
-				$this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-				$this->register_user();
-			} 
-			catch (Exception $e) 
-			{
-				$error_message = $e->getMessage();
 
-				if (strpos($error_message, "SQLSTATE[HY000]") !== false) 
-				{
-					echo "Warning: Database Access Denied.Please provide correct credentials";
-				}
-				else
-				{
-					echo $e->getMessage();
-				}
+			parent::__construct();
+
+			$this->log = Logger::getLogger(__cLASS__);
+
+			if($this->db_access === true)
+			{
+				$this->name = $name;
+				$this->gender = $gender;
+				$this->age = $age;
+				$this->email = $email;
+				$this->place = $place;
+				$this->contact = $contact;
+				$this->college = $college;
+				$this->whatsappno = $whatsappno;
+
+				$this->register_user();
 			}
+			else
+			{
+				echo "Db is not connected";
+			}	
 
 			
 			
@@ -53,59 +79,34 @@ class Register
 		//This function registers the user and send them a mail.
 
 		public function register_user() 
-		{
-
-			if(isset($_POST['name']) && isset($_POST['age']) && isset($_POST['college']) && isset($_POST['place']) && isset($_POST['email']) && isset($_POST['gender']) && isset($_POST['contact']) && isset($_POST['whatsapp_number']))
-			{
-
-				$name = $_POST['name'];
-				$gender = $_POST['gender'];
-				$age = $_POST['age'];
-				$email = $_POST['email'];
-				$place = $_POST['place'];
-				$contact = $_POST['contact'];
-				$college = $_POST['college'];
-				$whatsappnumber= $_POST['whatsapp_number'];
-
-			}
-			else
-			{
-				echo "Enter all form data and submit";
-				exit;
-			}
-				
- 
-			
-	
+		{		
 				$subject = '';
-				$message = '';
-
-
-			 
+				$message = '';			 
 
 			 try 
 			{
 				//creates the PDO statement
-				$queryStr = $this->db->prepare("INSERT INTO register_details (name,gender,age,email,place,contact,college,whatsappno)VALUES (:name,:gender,:age,:email,:place,:contact,:college,:whatsapp_number)"); 
+				$queryStr = $this->db->prepare("INSERT INTO register_details (name,gender,age,email,place,contact,college,whatsappno)VALUES (:name,:gender,:age,:email,:place,:contact,:college,:whatsappno)"); 
 
 				//executes the insert query
-				$queryStr->execute(array('name' => $name,'gender' => $gender,'age' => $age, 'email' => $email,'place' => $place, 'contact' => $contact, 'college'=>$college,'whatsapp_number'=>$whatsappnumber));
+				$queryStr->execute(array('name'=>$this->name,'gender'=>$this->gender,'age' => $this->age, 'email' => $this->email,'place' => $this->place, 'contact' => $this->contact, 'college'=>$this->college, 'whatsappno' => $this->whatsappno
+					));
 
 				$queryStr = $this->db->prepare("SELECT id FROM register_details WHERE email = :email");
 
-				$queryStr->execute(array('email' => $email));
+				$queryStr->execute(array('email' => $this->email));
 				$row = $queryStr->fetch(PDO::FETCH_ASSOC);
 				$id = $row['id'];
 
 
 				//Message to be sent in mail
 
-				$message = "Dear ".$name. ",You have been Successfully registered in MUSLIM STUDENTS MEET 2018. Your id " .$id ;
+				$message = "Dear ".$this->name. ",You have been Successfully registered in MUSLIM STUDENTS MEET 2018. Your id " .$id ;
 
 				
 				//Code to send email using send grid is given here
 
-				if (filter_var($email, FILTER_VALIDATE_EMAIL))
+				if (filter_var($this->email, FILTER_VALIDATE_EMAIL))
 				{
 					
 					//email send grid code starts here
@@ -115,9 +116,10 @@ class Register
 					/*Post Data*/
 
 					/*Content*/
-					$from = new SendGrid\Email("Admin-Wizara", "admin@muslimstudentsmeet.in");
+					$from = new SendGrid\Email("Admin-MSM", "admin@muslimstudentsmeet.in");
+		
 					$subject = "Registration Confirm - MUSLIM STUDENTS MEET - 2018";
-					$to = new SendGrid\Email($name, $email);
+					$to = new SendGrid\Email($this->name, $this->email);
 					$content = new SendGrid\Content("text/html", $message);
 
 					/*Send the mail*/
@@ -129,8 +131,27 @@ class Register
 					$response = $sg->client->mail()->send()->post($mail);
 					//var_dump($response);
 
-					//ends here
+					//Mail code to Admin starts here
+					$from = new SendGrid\Email("Admin-MSM", "admin@muslimstudentsmeet.in");
+					$subject = "New student has registered";
+					$to = new SendGrid\Email("Admin-MSM", "admin@muslimstudentsmeet.in");
+					$content = new SendGrid\Content("text/html", $message);
+
+					/*Send the mail*/
+					$mail = new SendGrid\Mail($from, $subject, $to, $content);
+					$apiKey = ('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');
+					$sg = new \SendGrid($apiKey);
+
+					/*Response*/
+					$response = $sg->client->mail()->send()->post($mail);
+
+
+					//Mail code to admin code ends here
+
+					//Code to send email using send grid ends here
 					echo $message;
+
+					$this->log->info("A user got registered with id.." .$id);
 				}
 
 				else
@@ -145,30 +166,27 @@ class Register
 			{
 				$error_message = $e->getMessage();
 
+				//it checks whether the error is the integrity constraint on the database.
+
 				if(strpos($error_message, "SQLSTATE[23000]") !== false)
 				{
-					echo "Email already registered... Please enter new email id";
+					echo "Email already regsitered... Please enter new email id";
 				}
 				else
 				{
 					echo $e->getMessage();
+					$this->log->info($e->getMessage());
 				}
+			}
+			finally
+			{
+				echo "Have a happy day";
 			}
 
 
 
 		}
 	}
-
-	$new_user = new Register();//Creates an object of class Register everytime a new user register.*/
-	//$new_user->register_user();//either call here are call in constructor
-
-	
-	
-	
-
-
-
 
 
 
