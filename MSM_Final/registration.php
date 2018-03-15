@@ -28,7 +28,7 @@ class Register
 			try 
 			{
 				//connecting to db - sms_wizara
-				$this->db = new PDO("mysql:host=localhost;dbname=muslim_students_meet","wizara", "wizara");
+				$this->db = new PDO("mysql:host=localhost;dbname=muslim_students_meet","user", "user");
 				$this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 				$this->register_user();
 			} 
@@ -55,7 +55,9 @@ class Register
 		public function register_user() 
 		{
 
-			
+			if(isset($_POST['name']) && isset($_POST['age']) && isset($_POST['college']) && isset($_POST['place']) && isset($_POST['email']) && isset($_POST['gender']) && isset($_POST['contact']) && isset($_POST['whatsapp_number']))
+			{
+
 				$name = $_POST['name'];
 				$gender = $_POST['gender'];
 				$age = $_POST['age'];
@@ -64,6 +66,14 @@ class Register
 				$contact = $_POST['contact'];
 				$college = $_POST['college'];
 				$whatsappnumber= $_POST['whatsapp_number'];
+
+			}
+			else
+			{
+				echo "Enter all form data and submit";
+				exit;
+			}
+				
  
 			
 	
@@ -76,7 +86,7 @@ class Register
 			 try 
 			{
 				//creates the PDO statement
-				$queryStr = $this->db->prepare("INSERT INTO register_details (name,gender,age,email,place,contact,college,whatsapp_number)VALUES (:name,:gender,:age,:email,:place,:contact,:college,:whatsapp_number)"); 
+				$queryStr = $this->db->prepare("INSERT INTO register_details (name,gender,age,email,place,contact,college,whatsappno)VALUES (:name,:gender,:age,:email,:place,:contact,:college,:whatsapp_number)"); 
 
 				//executes the insert query
 				$queryStr->execute(array('name' => $name,'gender' => $gender,'age' => $age, 'email' => $email,'place' => $place, 'contact' => $contact, 'college'=>$college,'whatsapp_number'=>$whatsappnumber));
