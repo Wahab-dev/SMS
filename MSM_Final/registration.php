@@ -69,7 +69,7 @@ class Register EXTENDS Database
 			}
 			else
 			{
-				echo "Db is not connected";
+				echo "Database is not connected";
 			}	
 
 			
@@ -149,7 +149,7 @@ class Register EXTENDS Database
 					//Mail code to admin code ends here
 
 					//Code to send email using send grid ends here
-					echo $message;
+					echo json_encode($message);
 
 					$this->log->info("A user got registered with id.." .$id);
 				}

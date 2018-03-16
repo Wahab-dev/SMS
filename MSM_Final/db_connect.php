@@ -68,7 +68,7 @@ class Database
 		}
 		finally
 		{
-			echo "Crossed db_connect page";
+			//echo "Crossed db_connect page";
 		}
 	}
 
