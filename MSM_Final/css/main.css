@@ -120,111 +120,7 @@ iframe {
 	border: none !important;
 }
 
-.wrap-input-gender {
-    color: #333;
-    font-size: 16px;
-    /* font-family: poppins regular; */
-    font-family: Poppins-Medium;
-}
-.radio{
-	margin-left: 100px;
-	margin-top: -24px;
-}
-label{
-	padding-right:20px;
-}
-.content:before {
-  content: "";
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0; bottom: 0;
-  z-index: -1;
 
-  display: block;
-  background-color: black;
-  background-image: url('backgroundimage.png');
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-
-  -webkit-filter: blur(2px);
-  -moz-filter: blur(2px);
-  -o-filter: blur(2px);
-  -ms-filter: blur(2px);
-  filter: blur(2px);
-}
-.backgroundimage{
-/*background-size: cover;*/
-	width: 1366px;
-    height: 662px;	
-}
-.btn-warning {
-    color: #fff;
-    background-color: #000;
-    border-color: #000;
-}
-.btn-warning :: hover{
-	background-color : #fff;
-	}
-btn-warning {
-    color: #fff;
-    background-color: #e7ac34;
-    border-color: #eea236;
-    width: 150px;
-    height: 40px;
-}
-.btn{
-	font-size: 20px;
-    letter-spacing: 1px;
-    font-weight: 600;
-}
-.navbar-default {
-   background-color: #f8f8f8b8;
-    border-color: #e7e7e77a;
-}
-.container-fluid {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: 920px;
-}
-.navbar-default .navbar-nav>.active>a {
-	color: #040404;
-    background-color: #e7e7e700;
-}
-.navbar-default .navbar-nav>li>a {
-    color: #777;
-    font-size: 17px;
-}
-.navbar-nav>.active>a:hover{
-	color:#fff;
-}
-.backgroundimage{
-/*background-size: cover;*/
-	width: 1348px;
-    height: 662px;
-}
-.button {
-    margin-top: -220px;
-    /* text-align: center; */
-    margin-left: 575px;
-}
-.btn1{
-	margin-left : 500px;
-}
-#register_block{
-	margin-top:150px;
-}
-.heading{
-	margin-top :-60px;
-	}
-.image_logo{
-	width: 400px;
-    height: 370px;
-    margin-top: -400px;
-    margin-left: 440px;
-	}
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
@@ -503,5 +399,7 @@ btn-warning {
     opacity: 1;
   }
 }
-
-
+ @media screen and (max-width: 400px) {
+	 .image_logo {
+            max-width: 100% !important;
+        }
